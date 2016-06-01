@@ -36,9 +36,10 @@
     <link href="chaserr.github.io/2016/05/31/hello-world/"/>
     <id>chaserr.github.io/2016/05/31/hello-world/</id>
     <published>2016-05-31T09:23:33.000Z</published>
-    <updated>2016-05-31T09:23:33.000Z</updated>
+    <updated>2016-06-01T10:46:48.000Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -51,7 +52,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
@@ -63,9 +64,9 @@
     <link href="chaserr.github.io/2016/05/31/%E6%9C%80%E7%AE%80%E4%BE%BF%E7%9A%84%E6%96%B9%E6%B3%95%E6%90%AD%E5%BB%BAHexo-Github%E5%8D%9A%E5%AE%A2-%E5%9F%BA%E4%BA%8ENext%E4%B8%BB%E9%A2%98/"/>
     <id>chaserr.github.io/2016/05/31/最简便的方法搭建Hexo-Github博客-基于Next主题/</id>
     <published>2016-05-31T04:08:29.000Z</published>
-    <updated>2016-06-01T10:41:09.000Z</updated>
+    <updated>2016-06-01T10:48:42.000Z</updated>
     
-    <content type="html">&lt;p&gt;#前言&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
+    <content type="html">&lt;p&gt;##前言&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.搭建you_site服务器环境&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2.部署到github上&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3.优化博客的主题&lt;/strong&gt; &lt;/p&gt;
@@ -73,21 +74,33 @@
 &lt;p&gt;ps:我选择的主题是Next&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;1-Hexo的安装&quot;&gt;&lt;a href=&quot;#1-Hexo的安装&quot; class=&quot;headerlink&quot; title=&quot;1.Hexo的安装&quot;&gt;&lt;/a&gt;1.Hexo的安装&lt;/h1&gt;&lt;p&gt;##1.1Hexo简介&lt;br&gt;在搭服务器环境之前，先简单介绍一下Hexo。Hexo 是一个简单地、轻量地、基于Node.js的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。&lt;br&gt;Hexo特性：&lt;/p&gt;
+&lt;h2 id=&quot;1-Hexo的安装&quot;&gt;&lt;a href=&quot;#1-Hexo的安装&quot; class=&quot;headerlink&quot; title=&quot;1.Hexo的安装&quot;&gt;&lt;/a&gt;1.Hexo的安装&lt;/h2&gt;&lt;p&gt;###1.1Hexo简介&lt;br&gt;在搭服务器环境之前，先简单介绍一下Hexo。Hexo 是一个简单地、轻量地、基于Node.js的一个静态博客框架。通过Hexo我们可以快速创建自己的博客，仅需要几条命令就可以完成。&lt;br&gt;Hexo特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Hexo基于Node.js，支持多进程，几百篇文章也可以秒生成。&lt;/li&gt;
 &lt;li&gt;支持GitHub Flavored Markdown和所有Octopress的插件。&lt;/li&gt;
 &lt;li&gt;Hexo支持EJS、Swig和Stylus。通过插件支持Haml、Jade和Less.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&quot;http://hexenter&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo的官方网站&lt;/a&gt;，也是基于Github构建的网站。&lt;/p&gt;
-&lt;p&gt;##1.2Hexo环境配置&lt;br&gt;在安装Hexo之前需要先安装一些它所依赖的环境配置&lt;br&gt;这里说一下，mac上安装一些软件的时候，我个人建议先安装一下Homebrew — &lt;a href=&quot;https://github.com/mxcl/homebrew&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github传送门&lt;/a&gt;，它相当于一个软件管理工具，不管是安装还是卸载都比较方便。&lt;br&gt;不多说，安装Homebrew也很简单，利用mac自带的ruby脚本功能，打开终端输入：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)”     &lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;安装完成后，Homebrew 的主程序安装在 /usr/local/bin/brew。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;接下来安装git和&lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;js&lt;/span&gt;就简单多了。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;###1.2.1Git安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- **安装过Xcode可以直接跳过这步，因为Xcode自带Git**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;个人建议使用这种方式安装，不要使用网上的安装包进行安装，安装&lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;js&lt;/span&gt;也是。因为有些博客里的安装包有些过时。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;打开终端输入：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $ brew install git &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;使用 Homebrew 方式安装，Git 被安装在 /usr/local/Cellar/git/ 中&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;###1.2.2Node.js安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $ brew install &lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;title&quot;&gt;使用 Homebrew&lt;/span&gt; 方式安装，&lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;被安装在 /usr&lt;/span&gt;/local/Cellar/&lt;span class=&quot;keyword&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;title&quot;&gt;/ 中，自带安装好npm&lt;/span&gt;组件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;想测试自己是否安装成功了，可以新建一个简单的hello.js文件:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```javascript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var http = require(&#39;http&#39;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http.createServer(function(req, res)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    res.writeHead(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;, &amp;#123;&#39;Content-&lt;span class=&quot;keyword&quot;&gt;Type&lt;/span&gt;&#39;: &#39;text/plain&#39;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    res.end(&#39;Hello World\n&#39;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;).listen(&lt;span class=&quot;number&quot;&gt;8808&lt;/span&gt;, &#39;&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0.1&lt;/span&gt;&#39;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log(&#39;Server running at http://&lt;span class=&quot;number&quot;&gt;127.0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0.1&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;8808&lt;/span&gt;&#39;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;放到根目录下，然后在终端输入：&lt;/p&gt;
+&lt;p&gt;###1.2Hexo环境配置&lt;br&gt;在安装Hexo之前需要先安装一些它所依赖的环境配置&lt;br&gt;这里说一下，mac上安装一些软件的时候，我个人建议先安装一下Homebrew — &lt;a href=&quot;https://github.com/mxcl/homebrew&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github传送门&lt;/a&gt;，它相当于一个软件管理工具，不管是安装还是卸载都比较方便。&lt;br&gt;不多说，安装Homebrew也很简单，利用mac自带的ruby脚本功能，打开终端输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装完成后，Homebrew 的主程序安装在 /usr/local/bin/brew。&lt;br&gt;接下来安装git和node.js就简单多了。&lt;/p&gt;
+&lt;p&gt;####1.2.1Git安装&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;安装过Xcode可以直接跳过这步，因为Xcode自带Git&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;个人建议使用这种方式安装，不要使用网上的安装包进行安装，安装node.js也是。因为有些博客里的安装包有些过时。&lt;br&gt;打开终端输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ brew install git 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用 Homebrew 方式安装，Git 被安装在 /usr/local/Cellar/git/ 中&lt;/p&gt;
+&lt;p&gt;####1.2.2Node.js安装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ brew install node 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用 Homebrew 方式安装，node 被安装在 /usr/local/Cellar/node/ 中，自带安装好npm组件&lt;br&gt;想测试自己是否安装成功了，可以新建一个简单的hello.js文件:&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; http = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;http&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http.createServer(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;req, res&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    res.writeHead(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;, &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;Content-Type&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;text/plain&#39;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    res.end(&lt;span class=&quot;string&quot;&gt;&#39;Hello World\n&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;).listen(&lt;span class=&quot;number&quot;&gt;8808&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;127.0.0.1&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;Server running at http://127.0.0.1:8808&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;放到根目录下，然后在终端输入：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;node hello_node.js
 Server running at http://127.0.0.1:8124/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后用浏览器打开用浏览器打开 &lt;a href=&quot;http://127.0.0.1:8124/就可以看到Hello&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://127.0.0.1:8124/就可以看到Hello&lt;/a&gt; World 字样了。&lt;/p&gt;
 &lt;p&gt;当然安装node.js还可以手动安装或者利用nvm安装，这里就不介绍了。&lt;br&gt;接下来就可以安装Hexo了&lt;/p&gt;
-&lt;p&gt;###1.2.3Hexo安装&lt;br&gt;在终端输入：&lt;/p&gt;
+&lt;p&gt;####1.2.3Hexo安装&lt;br&gt;在终端输入：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;npm install hexo -g
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样，就把 Hexo 本体和其相依套件安装完毕了，很简单吧。&lt;br&gt;以后更新Hexo到最新版直接在终端输入：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;npm update hexo -g
@@ -100,7 +113,7 @@ Server running at http://127.0.0.1:8124/
     
     <summary type="html">
     
-      &lt;p&gt;#前言&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
+      &lt;p&gt;##前言&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.搭建you_site服务器环境&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2.部署到github上&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3.优化博客的主题&lt;/strong&gt; &lt;/p&gt;
