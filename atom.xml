@@ -64,9 +64,9 @@
     <link href="chaserr.github.io/2016/05/31/%E6%9C%80%E7%AE%80%E4%BE%BF%E7%9A%84%E6%96%B9%E6%B3%95%E6%90%AD%E5%BB%BAHexo-Github%E5%8D%9A%E5%AE%A2-%E5%9F%BA%E4%BA%8ENext%E4%B8%BB%E9%A2%98/"/>
     <id>chaserr.github.io/2016/05/31/最简便的方法搭建Hexo-Github博客-基于Next主题/</id>
     <published>2016-05-31T04:08:29.000Z</published>
-    <updated>2016-06-01T11:02:54.000Z</updated>
+    <updated>2016-06-01T11:05:07.000Z</updated>
     
-    <content type="html">&lt;p&gt;##前言&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.搭建you_site服务器环境&lt;/strong&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;strong&gt;2.部署到github上&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3.优化博客的主题&lt;/strong&gt; &lt;/p&gt;
 &lt;blockquote&gt;
@@ -100,7 +100,7 @@ Server running at http://127.0.0.1:8124/
     
     <summary type="html">
     
-      &lt;p&gt;##前言&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.搭建you_site服务器环境&lt;/strong&gt;&lt;br&gt;
     
     </summary>
