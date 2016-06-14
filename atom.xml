@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="chaserr.github.io/"/>
-  <updated>2016-06-14T09:11:48.000Z</updated>
+  <updated>2016-06-14T09:16:21.000Z</updated>
   <id>chaserr.github.io/</id>
   
   <author>
@@ -16,15 +16,14 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>xCode插件使用记录</title>
+    <title>Xcode插件使用记录</title>
     <link href="chaserr.github.io/2016/06/14/%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E8%AE%B0%E5%BD%95/"/>
     <id>chaserr.github.io/2016/06/14/使用插件记录/</id>
     <published>2016-06-14T04:08:29.000Z</published>
-    <updated>2016-06-14T09:11:48.000Z</updated>
+    <updated>2016-06-14T09:16:21.000Z</updated>
     
     <content type="html">&lt;p&gt;一款类似cocoapod管理第三方工具的管理工具，用来管理常用的插件:&lt;a href=&quot;https://github.com/wawsc5354524/Alcatraz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Alcatraz&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;##卸载Alcatraz&lt;/p&gt;
-&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Alcatraz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;卸载Alcatraz&quot;&gt;&lt;a href=&quot;#卸载Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;卸载Alcatraz&quot;&gt;&lt;/a&gt;卸载Alcatraz&lt;/h2&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Alcatraz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;安装Alcatraz&quot;&gt;&lt;a href=&quot;#安装Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;安装Alcatraz&quot;&gt;&lt;/a&gt;安装Alcatraz&lt;/h2&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -fsSL &lt;span class=&quot;symbol&quot;&gt;https:&lt;/span&gt;/&lt;span class=&quot;regexp&quot;&gt;/raw.github.com/supermarin&lt;/span&gt;&lt;span class=&quot;regexp&quot;&gt;/Alcatraz/master&lt;/span&gt;&lt;span class=&quot;regexp&quot;&gt;/Scripts/install&lt;/span&gt;.sh &lt;span class=&quot;params&quot;&gt;| sh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;xcode更新之后插件失效的解决办法&lt;br&gt;&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;defaults &lt;span class=&quot;keyword&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;regexp&quot;&gt;/Applications/&lt;/span&gt;Xcode.app&lt;span class=&quot;regexp&quot;&gt;/Contents/I&lt;/span&gt;nfo DVTPlugInCompatibilityUUID&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -53,8 +52,7 @@
     <summary type="html">
     
       &lt;p&gt;一款类似cocoapod管理第三方工具的管理工具，用来管理常用的插件:&lt;a href=&quot;https://github.com/wawsc5354524/Alcatraz&quot;&gt;Alcatraz&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;##卸载Alcatraz&lt;/p&gt;
-&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Alcatraz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;卸载Alcatraz&quot;&gt;&lt;a href=&quot;#卸载Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;卸载Alcatraz&quot;&gt;&lt;/a&gt;卸载Alcatraz&lt;/h2&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Alcatraz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
