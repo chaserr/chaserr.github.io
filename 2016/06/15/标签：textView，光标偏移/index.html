@@ -88,22 +88,28 @@
 
 
 <meta name="description" content="textView使用小结：（仿QQ空间留言输入）效果图如下：
-这里主要使用的是textView的一个属性值：textContainerInset
-代码如下：1234567- (void)awakeFromNib &amp;#123;    [super awakeFromNib];    // Initialization code    _textView.textContainerInset = UI">
+
+&amp;#160;&amp;#160;这里主要使用的是textView的一个属性值：textContainerInset
+&amp;#160;&amp;#160;代码如下：
+1234567- (void)awakeFromNib &amp;#123;    [super awakeFromNib];    // Initialization code    _textVi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="textView使用小结">
 <meta property="og:url" content="chaserr.github.io/2016/06/15/标签：textView，光标偏移/index.html">
 <meta property="og:site_name" content="朝夕">
 <meta property="og:description" content="textView使用小结：（仿QQ空间留言输入）效果图如下：
-这里主要使用的是textView的一个属性值：textContainerInset
-代码如下：1234567- (void)awakeFromNib &amp;#123;    [super awakeFromNib];    // Initialization code    _textView.textContainerInset = UI">
+
+&amp;#160;&amp;#160;这里主要使用的是textView的一个属性值：textContainerInset
+&amp;#160;&amp;#160;代码如下：
+1234567- (void)awakeFromNib &amp;#123;    [super awakeFromNib];    // Initialization code    _textVi">
 <meta property="og:image" content="http://7xuupy.com1.z0.glb.clouddn.com/textview.gif">
-<meta property="og:updated_time" content="2016-06-15T10:20:30.000Z">
+<meta property="og:updated_time" content="2016-06-15T10:37:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="textView使用小结">
 <meta name="twitter:description" content="textView使用小结：（仿QQ空间留言输入）效果图如下：
-这里主要使用的是textView的一个属性值：textContainerInset
-代码如下：1234567- (void)awakeFromNib &amp;#123;    [super awakeFromNib];    // Initialization code    _textView.textContainerInset = UI">
+
+&amp;#160;&amp;#160;这里主要使用的是textView的一个属性值：textContainerInset
+&amp;#160;&amp;#160;代码如下：
+1234567- (void)awakeFromNib &amp;#123;    [super awakeFromNib];    // Initialization code    _textVi">
 <meta name="twitter:image" content="http://7xuupy.com1.z0.glb.clouddn.com/textview.gif">
 
 
@@ -396,12 +402,14 @@
       
 
       
-        <h1 id="textView使用小结：（仿QQ空间留言输入）"><a href="#textView使用小结：（仿QQ空间留言输入）" class="headerlink" title="textView使用小结：（仿QQ空间留言输入）"></a>textView使用小结：（仿QQ空间留言输入）</h1><p>效果图如下：<br><img src="http://7xuupy.com1.z0.glb.clouddn.com/textview.gif" alt="textView从中间慢慢往上输出"></p>
-<p>这里主要使用的是textView的一个属性值：<code>textContainerInset</code></p>
-<p>代码如下：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)awakeFromNib &#123;</span><br><span class="line">    [<span class="keyword">super</span> awakeFromNib];</span><br><span class="line">    <span class="comment">// Initialization code</span></span><br><span class="line">    _textView.textContainerInset = <span class="built_in">UIEdgeInsetsMake</span>(<span class="built_in">CGRectGetHeight</span>(_textView.frame) * <span class="number">0.5</span> +<span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="textView使用小结：（仿QQ空间留言输入）"><a href="#textView使用小结：（仿QQ空间留言输入）" class="headerlink" title="textView使用小结：（仿QQ空间留言输入）"></a>textView使用小结：（仿QQ空间留言输入）</h1><p>效果图如下：</p>
+<p><img src="http://7xuupy.com1.z0.glb.clouddn.com/textview.gif" alt="textView从中间慢慢往上输出"></p>
+<p>&#160;&#160;这里主要使用的是textView的一个属性值：<code>textContainerInset</code></p>
+<p>&#160;&#160;代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)awakeFromNib &#123;</span><br><span class="line">    [<span class="keyword">super</span> awakeFromNib];</span><br><span class="line">    <span class="comment">// Initialization code</span></span><br><span class="line">    _textView.textContainerInset = <span class="built_in">UIEdgeInsetsMake</span>(<span class="built_in">CGRectGetHeight</span>(_textView.frame) * <span class="number">0.5</span> +<span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>刚开始的时候设置textView的光标，也即是系统内部的<code>UITextContainerView</code>的偏移量为<code>_textView</code>的中间。<br>接着，我们在输入的过程中，需要将已经输入的文字网上移动，这里还是要改变<code>UITextContainerView</code>的偏移量就行了。操作属性<code>textContainerInset</code>，这里注意需要在textView的代理方法里实现<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -- UITextViewDelegate</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)textViewDidChange:(<span class="built_in">UITextView</span> *)textView&#123;</span><br><span class="line">    GBFillJobStateCell *cell = CELL_SUBVIEW_TABLEVIEW(textView, <span class="keyword">self</span>.tableview);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置textView默认显示的文字</span></span><br><span class="line">    <span class="keyword">if</span> (textView.text.length == <span class="number">0</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        cell.placeholdText.hidden = <span class="literal">NO</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        </span><br><span class="line">        cell.placeholdText.hidden = <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span>  tH     = [<span class="keyword">self</span> textSizeWithTextView:(<span class="built_in">UITextView</span> *)textView Font:textView.font.pointSize text:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">CGFloat</span> offset = (textView.frame.size.height - tH.height)/<span class="number">2.</span>f;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置textContainerInset属性</span></span><br><span class="line">    textView.textContainerInset = <span class="built_in">UIEdgeInsetsMake</span>(offset, <span class="number">0</span>, offset, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGSize</span>)textSizeWithTextView:(<span class="built_in">UITextView</span> *)textView Font:(<span class="built_in">CGFloat</span>)font text:(<span class="built_in">NSString</span> *)string</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *text = string ? string : textView.text;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> tMargen = textView.textContainer.lineFragmentPadding * <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> tW = textView.frame.size.width - tMargen;</span><br><span class="line">    <span class="built_in">CGSize</span> tSize = [text boundingRectWithSize:<span class="built_in">CGSizeMake</span>(tW, MAXFLOAT) options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> attributes:@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">14</span>]&#125; context:<span class="literal">nil</span>].size;</span><br><span class="line">    <span class="keyword">return</span>  tSize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<p>&#160;&#160;&#160;&#160;刚开始的时候设置textView的光标，也即是系统内部的<code>UITextContainerView</code>的偏移量为<code>_textView</code>的中间。<br>接着，我们在输入的过程中，需要将已经输入的文字网上移动，这里还是要改变<code>UITextContainerView</code>的偏移量就行了。操作属性<code>textContainerInset</code>，这里注意需要在textView的代理方法里实现</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -- UITextViewDelegate</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)textViewDidChange:(<span class="built_in">UITextView</span> *)textView&#123;</span><br><span class="line">    GBFillJobStateCell *cell = CELL_SUBVIEW_TABLEVIEW(textView, <span class="keyword">self</span>.tableview);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置textView默认显示的文字</span></span><br><span class="line">    <span class="keyword">if</span> (textView.text.length == <span class="number">0</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        cell.placeholdText.hidden = <span class="literal">NO</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        </span><br><span class="line">        cell.placeholdText.hidden = <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span>  tH     = [<span class="keyword">self</span> textSizeWithTextView:(<span class="built_in">UITextView</span> *)textView Font:textView.font.pointSize text:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">CGFloat</span> offset = (textView.frame.size.height - tH.height)/<span class="number">2.</span>f;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置textContainerInset属性</span></span><br><span class="line">    textView.textContainerInset = <span class="built_in">UIEdgeInsetsMake</span>(offset, <span class="number">0</span>, offset, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGSize</span>)textSizeWithTextView:(<span class="built_in">UITextView</span> *)textView Font:(<span class="built_in">CGFloat</span>)font text:(<span class="built_in">NSString</span> *)string</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *text = string ? string : textView.text;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> tMargen = textView.textContainer.lineFragmentPadding * <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> tW = textView.frame.size.width - tMargen;</span><br><span class="line">    <span class="built_in">CGSize</span> tSize = [text boundingRectWithSize:<span class="built_in">CGSizeMake</span>(tW, MAXFLOAT) options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> attributes:@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">14</span>]&#125; context:<span class="literal">nil</span>].size;</span><br><span class="line">    <span class="keyword">return</span>  tSize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -456,6 +464,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/16/点击cell动态改变cell高度/" rel="prev" title="点击cell动态改变cell高度">
+                点击cell动态改变cell高度 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -549,7 +561,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -566,7 +578,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
