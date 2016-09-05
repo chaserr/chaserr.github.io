@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="chaserr.github.io/"/>
-  <updated>2016-06-16T11:45:06.000Z</updated>
+  <updated>2016-09-05T03:35:26.000Z</updated>
   <id>chaserr.github.io/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的个人简历</title>
+    <link href="chaserr.github.io/2016/09/05/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%AE%80%E5%8E%86/"/>
+    <id>chaserr.github.io/2016/09/05/我的个人简历/</id>
+    <published>2016-09-05T03:35:26.000Z</published>
+    <updated>2016-09-05T03:35:26.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>点击cell动态改变cell高度</title>
