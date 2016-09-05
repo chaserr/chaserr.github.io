@@ -214,16 +214,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -234,12 +224,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            归档
+            分类
           </a>
         </li>
       
@@ -250,6 +240,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
@@ -519,7 +519,7 @@ Server running at http://127.0.0.1:8124/
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> 朝夕 <span class="comment">#博客名</span></span><br><span class="line"><span class="attr">subtitle:</span> 朝闻道，夕死可以。 <span class="comment">#博客副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="comment">#给搜索引擎看的，对站点的描述，可以自定义</span></span><br><span class="line"><span class="attr">author:</span> 童星 <span class="comment">#作者名称，显示在网站最底部</span></span><br><span class="line"><span class="attr">language:</span> zh-Hans <span class="comment">#语言选择，这里表示中文</span></span><br><span class="line"><span class="attr">email:</span> <span class="comment">#你的联系邮箱</span></span><br><span class="line"><span class="attr">timezone:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="attr">url:</span> chaserr.github.io  <span class="comment">#可以填写你的站点域名</span></span><br><span class="line"><span class="attr">root:</span> /</span><br><span class="line"><span class="attr">permalink:</span> :year/:month/:day/:title/</span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="attr">source_dir:</span> source</span><br><span class="line"><span class="attr">public_dir:</span> public</span><br><span class="line"><span class="attr">tag_dir:</span> tags</span><br><span class="line"><span class="attr">archive_dir:</span> archives</span><br><span class="line"><span class="attr">category_dir:</span> categories</span><br><span class="line"><span class="attr">code_dir:</span> downloads/code</span><br><span class="line"><span class="attr">i18n_dir:</span> :lang</span><br><span class="line"><span class="attr">skip_render:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Writing , 设置生成博文的默认格式</span></span><br><span class="line"><span class="attr">new_post_name:</span> :title.md <span class="comment"># File name of new posts</span></span><br><span class="line"><span class="attr">default_layout:</span> post <span class="comment">#默认布局</span></span><br><span class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line"><span class="attr">external_link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line"><span class="attr">filename_case:</span> <span class="number">0</span> <span class="comment">#把文件名称转换为（1）小写或者大写</span></span><br><span class="line"><span class="attr">render_drafts:</span> <span class="comment">#显示草稿</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span>  <span class="comment">#启动Asset文件夹</span></span><br><span class="line"><span class="attr">relative_link:</span> <span class="literal">false</span> <span class="comment">#把链接改为与根目录相对位置</span></span><br><span class="line"><span class="attr">future:</span> <span class="literal">true</span> <span class="comment">#显示未来的文章</span></span><br><span class="line"><span class="attr">highlight:</span> <span class="comment">#代码块的设置</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  line_number:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  auto_detect:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  tab_replace:</span></span><br></pre></td></tr></table></figure>
 <p>默认的大致就这些，另外给主题添加相关功能的时候后面会慢慢加上其他一些参数。</p>
 <h4 id="给站点添加rss和sitemap功能"><a href="#给站点添加rss和sitemap功能" class="headerlink" title="给站点添加rss和sitemap功能"></a>给站点添加rss和sitemap功能</h4><p>打开终端，切换到站点根目录，输入：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="keyword">install</span> hexo-generator-feed</span><br><span class="line">$ npm <span class="keyword">install</span> hexo-generator-sitemap</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-feed</span><br><span class="line">$ npm install hexo-generator-sitemap</span><br></pre></td></tr></table></figure>
 <p>在全局配置文件_config.yml进行插件配置：（为防止好找，在最下面进行配置）</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#插件配置</span></span><br><span class="line"><span class="symbol">plugins:</span> hexo-generator-feed </span><br><span class="line"><span class="meta">#- hexo-generator-sitemap </span></span><br><span class="line"><span class="symbol"></span><br><span class="line">feed:</span></span><br><span class="line"><span class="symbol">  type:</span> atom <span class="meta">##feed类型 atom或者rss2</span></span><br><span class="line"><span class="symbol">  path:</span> atom.xml <span class="meta">##feed路径</span></span><br><span class="line"><span class="symbol">  limit:</span> <span class="number">20</span>  <span class="meta">##feed文章最小数量</span></span><br></pre></td></tr></table></figure>
 <h4 id="给站点添加本地搜索功能"><a href="#给站点添加本地搜索功能" class="headerlink" title="给站点添加本地搜索功能"></a>给站点添加本地搜索功能</h4><ul>
@@ -629,7 +629,7 @@ Server running at http://127.0.0.1:8124/
 </blockquote>
 <h3 id="给文章添加阅读量"><a href="#给文章添加阅读量" class="headerlink" title="给文章添加阅读量"></a>给文章添加阅读量</h3><h4 id="配置LeanCloud"><a href="#配置LeanCloud" class="headerlink" title="配置LeanCloud"></a>配置LeanCloud</h4><p>打开<a href="https://leancloud.cn/login.html#/signin" target="_blank" rel="external">LeanCloud</a>官网，注册一个账号，完成激活<br><img src="http://7xuupy.com1.z0.glb.clouddn.com/Snip20160601_14.png" alt="Snip20160531_14"><br>点击创建新应用之后，进入新创建的应用<br><img src="http://7xuupy.com1.z0.glb.clouddn.com/Snip20160601_15.png" alt="Snip20160531_15"><br>点击创建Class，类名叫做<code>Counter</code>。</p>
 <h4 id="修改主题配置文件-config-yml"><a href="#修改主题配置文件-config-yml" class="headerlink" title="修改主题配置文件_config.yml"></a>修改主题配置文件_config.yml</h4><p>打开主题配置文件，找到<code>leancloud_visitors</code>字段或者创建</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show number of visitors to each article.</span></span><br><span class="line"><span class="comment"># You can visit https://leancloud.cn get AppID and AppKey.</span></span><br><span class="line"><span class="attr">leancloud_visitors:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  app_id:</span> ytnok33cvEchgidigtb0WumC-gzGzoHsz <span class="comment">#&lt;AppID&gt;</span></span><br><span class="line"><span class="attr">  app_key:</span> SrcG8cy1VhONurWBoEBGGHML <span class="comment">#&lt;AppKEY&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Show number of visitors to each article.</span></span><br><span class="line"><span class="meta"># You can visit https:<span class="comment">//leancloud.cn get AppID and AppKey.</span></span></span><br><span class="line"><span class="symbol">leancloud_visitors:</span></span><br><span class="line"><span class="symbol">  enable:</span> true</span><br><span class="line"><span class="symbol">  app_id:</span> ytnok33cvEchgidigtb0WumC-gzGzoHsz <span class="meta">#&lt;AppID&gt;</span></span><br><span class="line"><span class="symbol">  app_key:</span> SrcG8cy1VhONurWBoEBGGHML <span class="meta">#&lt;AppKEY&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <ol>
 <li><code>app_id</code></li>
