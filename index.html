@@ -379,14 +379,10 @@
 <li>为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告</li>
 <li>把广告页从服务器加载完成后缓存在本地和内存中</li>
 <li>而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步</li>
-<li>默认先显示系统的LaunchImage,然后执行第二步</li>
-</ol>
-<p>##UI逻辑</p>
-<ol>
+<li>默认先显示系统的LaunchImage,然后执行第二步<br>##UI逻辑</li>
 <li>去掉main.storyBoard和Launch.storyboard，添加自定义的LaunchImage</li>
 <li>将window可见，然后在window上覆盖一层imageView,用来展示广告页</li>
-<li>如果需要跳转，点击广告页，使用根导航控制器push广告加载页</li>
-</ol>
+<li>如果需要跳转，点击广告页，使用根导航控制器push广告加载页
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/23/基于Swift3的app启动插入广告页的实现/#more" rel="contents">
               阅读全文 &raquo;
@@ -1238,7 +1234,7 @@ rm -rf ~/Library/Application\ Support/Alcatraz
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
