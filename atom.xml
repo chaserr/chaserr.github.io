@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="chaserr.github.io/"/>
-  <updated>2016-06-16T11:45:06.000Z</updated>
+  <updated>2016-11-23T01:43:15.000Z</updated>
   <id>chaserr.github.io/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于Swift3的app启动插入广告页的实现</title>
+    <link href="chaserr.github.io/2016/11/23/%E5%9F%BA%E4%BA%8ESwift3%E7%9A%84app%E5%90%AF%E5%8A%A8%E6%8F%92%E5%85%A5%E5%B9%BF%E5%91%8A%E9%A1%B5%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>chaserr.github.io/2016/11/23/基于Swift3的app启动插入广告页的实现/</id>
+    <published>2016-11-23T01:35:20.000Z</published>
+    <updated>2016-11-23T01:43:15.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;AppLaunchADExample&quot;&gt;&lt;a href=&quot;#AppLaunchADExample&quot; class=&quot;headerlink&quot; title=&quot;AppLaunchADExample&quot;&gt;&lt;/a&gt;AppLaunchADExample&lt;/h1&gt;&lt;p&gt;##缓存逻辑&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告&lt;/li&gt;
+&lt;li&gt;把广告页从服务器加载完成后缓存在本地和内存中&lt;/li&gt;
+&lt;li&gt;而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步&lt;/li&gt;
+&lt;li&gt;默认先显示系统的LaunchImage,然后执行第二步&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;##UI逻辑&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;去掉main.storyBoard和Launch.storyboard，添加自定义的LaunchImage&lt;/li&gt;
+&lt;li&gt;将window可见，然后在window上覆盖一层imageView,用来展示广告页&lt;/li&gt;
+&lt;li&gt;如果需要跳转，点击广告页，使用根导航控制器push广告加载页&lt;/li&gt;
+&lt;/ol&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;##使用的第三方&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用cocoaPod导入王巍（喵神）的作品&lt;code&gt;Kingfisher&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;采用本地缓存加内存缓存机制，来确保启动页广告图片的快速加载 &lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;Kingfisher&lt;/code&gt;的时候，注意自己缓存的路径和查找的路径一定要保持一致，Kingfisher的缓存图片默认是路径是default，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;【注】：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用该种模式，不能启用main.storyBoard&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不能使用 LaunchScreen.storyBoard&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;必须要有启动图&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-480cba5f068469d1.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;LaunchAdsImage&quot;&gt;&lt;/p&gt;
+&lt;p&gt;###写在最后&lt;br&gt;如有建议请多多指教&lt;br&gt;&lt;a href=&quot;https://github.com/chaserr/AppLaunchADExample&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;项目地址&lt;/a&gt;&lt;br&gt;喜欢的话给个start吧&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;AppLaunchADExample&quot;&gt;&lt;a href=&quot;#AppLaunchADExample&quot; class=&quot;headerlink&quot; title=&quot;AppLaunchADExample&quot;&gt;&lt;/a&gt;AppLaunchADExample&lt;/h1&gt;&lt;p&gt;##缓存逻辑&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告&lt;/li&gt;
+&lt;li&gt;把广告页从服务器加载完成后缓存在本地和内存中&lt;/li&gt;
+&lt;li&gt;而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步&lt;/li&gt;
+&lt;li&gt;默认先显示系统的LaunchImage,然后执行第二步&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;##UI逻辑&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;去掉main.storyBoard和Launch.storyboard，添加自定义的LaunchImage&lt;/li&gt;
+&lt;li&gt;将window可见，然后在window上覆盖一层imageView,用来展示广告页&lt;/li&gt;
+&lt;li&gt;如果需要跳转，点击广告页，使用根导航控制器push广告加载页&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>点击cell动态改变cell高度</title>
@@ -27,7 +88,10 @@
 &lt;ol&gt;
 &lt;li&gt;点击cell的时候会弹出一个contentView,根据数据，获取这个contentView的高度。为了实现刷新的动画效果，接下来的cell的高度变化都在 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[tableView beginUpdates];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// code&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[tableView endUpdates];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&quot;objectivec&quot;&gt;[tableView beginUpdates];
+// code
+[tableView endUpdates];
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;上面这个代码块之间执行。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;当contentView以动画的形式出现的时候，先展示contentView，然后再改变cell的高度&lt;/li&gt;
@@ -39,7 +103,55 @@
 &lt;/blockquote&gt;
 &lt;p&gt;最后简单的模拟了一下不同cell的高度，实现的效果如下图：&lt;br&gt;&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/EC8C15D3-4180-4238-834D-8475B9FB597B.gif&quot; alt=&quot;效果图2&quot;&gt;&lt;/p&gt;
 &lt;p&gt;核心代码：&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.isVisiable) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    _index_arr = arc4random()%&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    _indexPath_cell = indexPath;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    _self_adaption = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; f = [[_Harray objectAtIndex:_index_arr] floatValue];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIView&lt;/span&gt; *testView = [[&lt;span class=&quot;built_in&quot;&gt;UIView&lt;/span&gt; alloc]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        initWithFrame:&lt;span class=&quot;built_in&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, SCREEN_WIDTH, f - &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    testView.backgroundColor = [&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; colorWithRed:&lt;span class=&quot;number&quot;&gt;1.000&lt;/span&gt; green:&lt;span class=&quot;number&quot;&gt;0.971&lt;/span&gt; blue:&lt;span class=&quot;number&quot;&gt;0.138&lt;/span&gt; alpha:&lt;span class=&quot;number&quot;&gt;1.000&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    testView.userInteractionEnabled = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIImageView&lt;/span&gt; *imageView = [[&lt;span class=&quot;built_in&quot;&gt;UIImageView&lt;/span&gt; alloc] initWithFrame:testView.bounds];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    imageView.image = [&lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;ab97283425c2ce1c75ccac15a1fed5fd.jpg&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [testView addSubview:imageView];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    _testView= testView;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [cell.contentView addSubview:testView];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [tableView beginUpdates];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    testView.transform = &lt;span class=&quot;built_in&quot;&gt;CGAffineTransformMakeScale&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.01&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;built_in&quot;&gt;UIView&lt;/span&gt; animateWithDuration:&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     animations:^&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         testView.transform = &lt;span class=&quot;built_in&quot;&gt;CGAffineTransformMakeScale&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         &lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt; oldFrame = cell.frame;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         oldFrame.size.height = f;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         cell.frame = oldFrame;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     &amp;#125;completion:^(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; finish)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         _visiable = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     &amp;#125;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [tableView endUpdates];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;built_in&quot;&gt;UIView&lt;/span&gt; animateWithDuration:&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     animations:^&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         _testView.transform = &lt;span class=&quot;built_in&quot;&gt;CGAffineTransformMakeScale&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.01&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     &amp;#125;completion:^(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; finish)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         [_testView removeFromSuperview];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         _visiable = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         _self_adaption = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:&lt;span class=&quot;built_in&quot;&gt;UITableViewRowAnimationAutomatic&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                     &amp;#125;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&quot;objectivec&quot;&gt;
+    if (!self.isVisiable) {
+        _index_arr = arc4random()%5;
+        _indexPath_cell = indexPath;
+        _self_adaption = YES;
+        CGFloat f = [[_Harray objectAtIndex:_index_arr] floatValue];
+        UIView *testView = [[UIView alloc]
+                            initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, f - 10)];
+        testView.backgroundColor = [UIColor colorWithRed:1.000 green:0.971 blue:0.138 alpha:1.000];
+        testView.userInteractionEnabled = NO;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:testView.bounds];
+        imageView.image = [UIImage imageNamed:@&amp;quot;ab97283425c2ce1c75ccac15a1fed5fd.jpg&amp;quot;];
+        [testView addSubview:imageView];
+        _testView= testView;
+        [cell.contentView addSubview:testView];
+        [tableView beginUpdates];
+        testView.transform = CGAffineTransformMakeScale(1, 0.01);
+
+        [UIView animateWithDuration:0.5
+                         animations:^{
+
+                             testView.transform = CGAffineTransformMakeScale(1, 1);
+                             CGRect oldFrame = cell.frame;
+                             oldFrame.size.height = f;
+                             cell.frame = oldFrame;
+
+                         }completion:^(BOOL finish){
+                             _visiable = YES;
+
+                         }];
+        [tableView endUpdates];
+
+    }
+    else{
+
+        [UIView animateWithDuration:0.5
+                         animations:^{
+
+                             _testView.transform = CGAffineTransformMakeScale(1, 0.01);
+
+                         }completion:^(BOOL finish){
+                             [_testView removeFromSuperview];
+                             _visiable = NO;
+                             _self_adaption = NO;
+
+                             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                         }];
+    }
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;demo地址：&lt;a href=&quot;https://github.com/chaserr&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git传送门&lt;/a&gt;&lt;/p&gt;
 </content>
     
@@ -72,10 +184,49 @@
 &lt;p&gt;&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/textview.gif&quot; alt=&quot;textView从中间慢慢往上输出&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#160;&amp;#160;这里主要使用的是textView的一个属性值：&lt;code&gt;textContainerInset&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#160;&amp;#160;代码如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)awakeFromNib &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; awakeFromNib];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Initialization code&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    _textView.textContainerInset = &lt;span class=&quot;built_in&quot;&gt;UIEdgeInsetsMake&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;CGRectGetHeight&lt;/span&gt;(_textView.frame) * &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt; +&lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&quot;objectivec&quot;&gt;
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+    _textView.textContainerInset = UIEdgeInsetsMake(CGRectGetHeight(_textView.frame) * 0.5 +8, 0, 0, 0);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;刚开始的时候设置textView的光标，也即是系统内部的&lt;code&gt;UITextContainerView&lt;/code&gt;的偏移量为&lt;code&gt;_textView&lt;/code&gt;的中间。&lt;br&gt;接着，我们在输入的过程中，需要将已经输入的文字网上移动，这里还是要改变&lt;code&gt;UITextContainerView&lt;/code&gt;的偏移量就行了。操作属性&lt;code&gt;textContainerInset&lt;/code&gt;，这里注意需要在textView的代理方法里实现&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#pragma mark -- UITextViewDelegate&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)textViewDidChange:(&lt;span class=&quot;built_in&quot;&gt;UITextView&lt;/span&gt; *)textView&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    GBFillJobStateCell *cell = CELL_SUBVIEW_TABLEVIEW(textView, &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.tableview);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 设置textView默认显示的文字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (textView.text.length == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        cell.placeholdText.hidden = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        cell.placeholdText.hidden = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGSize&lt;/span&gt;  tH     = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; textSizeWithTextView:(&lt;span class=&quot;built_in&quot;&gt;UITextView&lt;/span&gt; *)textView Font:textView.font.pointSize text:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; offset = (textView.frame.size.height - tH.height)/&lt;span class=&quot;number&quot;&gt;2.&lt;/span&gt;f;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 设置textContainerInset属性&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    textView.textContainerInset = &lt;span class=&quot;built_in&quot;&gt;UIEdgeInsetsMake&lt;/span&gt;(offset, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, offset, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGSize&lt;/span&gt;)textSizeWithTextView:(&lt;span class=&quot;built_in&quot;&gt;UITextView&lt;/span&gt; *)textView Font:(&lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt;)font text:(&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *)string&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *text = string ? string : textView.text;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; tMargen = textView.textContainer.lineFragmentPadding * &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; tW = textView.frame.size.width - tMargen;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGSize&lt;/span&gt; tSize = [text boundingRectWithSize:&lt;span class=&quot;built_in&quot;&gt;CGSizeMake&lt;/span&gt;(tW, MAXFLOAT) options:&lt;span class=&quot;built_in&quot;&gt;NSStringDrawingUsesLineFragmentOrigin&lt;/span&gt; attributes:@&amp;#123;&lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt;:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;14&lt;/span&gt;]&amp;#125; context:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;].size;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;  tSize;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+&lt;pre&gt;&lt;code class=&quot;objectivec&quot;&gt;#pragma mark -- UITextViewDelegate
+
+- (void)textViewDidChange:(UITextView *)textView{
+    GBFillJobStateCell *cell = CELL_SUBVIEW_TABLEVIEW(textView, self.tableview);
+
+    // 设置textView默认显示的文字
+    if (textView.text.length == 0) {
+
+        cell.placeholdText.hidden = NO;
+    }else{
+
+        cell.placeholdText.hidden = YES;
+    }
+
+    CGSize  tH     = [self textSizeWithTextView:(UITextView *)textView Font:textView.font.pointSize text:nil];
+    CGFloat offset = (textView.frame.size.height - tH.height)/2.f;
+
+    // 设置textContainerInset属性
+    textView.textContainerInset = UIEdgeInsetsMake(offset, 0, offset, 0);
+
+}
+
+- (CGSize)textSizeWithTextView:(UITextView *)textView Font:(CGFloat)font text:(NSString *)string
+{
+    NSString *text = string ? string : textView.text;
+
+    CGFloat tMargen = textView.textContainer.lineFragmentPadding * 2;
+    CGFloat tW = textView.frame.size.width - tMargen;
+    CGSize tSize = [text boundingRectWithSize:CGSizeMake(tW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
+    return  tSize;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</content>
     
     <summary type="html">
     
@@ -83,7 +234,14 @@
 &lt;p&gt;&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/textview.gif&quot; alt=&quot;textView从中间慢慢往上输出&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#160;&amp;#160;这里主要使用的是textView的一个属性值：&lt;code&gt;textContainerInset&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#160;&amp;#160;代码如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)awakeFromNib &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; awakeFromNib];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Initialization code&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    _textView.textContainerInset = &lt;span class=&quot;built_in&quot;&gt;UIEdgeInsetsMake&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;CGRectGetHeight&lt;/span&gt;(_textView.frame) * &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt; +&lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code class=&quot;objectivec&quot;&gt;
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+    _textView.textContainerInset = UIEdgeInsetsMake(CGRectGetHeight(_textView.frame) * 0.5 +8, 0, 0, 0);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -104,11 +262,16 @@
     <updated>2016-06-14T09:17:29.000Z</updated>
     
     <content type="html">&lt;p&gt;一款类似cocoapod管理第三方工具的管理工具，用来管理常用的插件:&lt;a href=&quot;https://github.com/wawsc5354524/Alcatraz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Alcatraz&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;卸载Alcatraz&quot;&gt;&lt;a href=&quot;#卸载Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;卸载Alcatraz&quot;&gt;&lt;/a&gt;卸载Alcatraz&lt;/h2&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Alcatraz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;卸载Alcatraz&quot;&gt;&lt;a href=&quot;#卸载Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;卸载Alcatraz&quot;&gt;&lt;/a&gt;卸载Alcatraz&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin
+
+rm -rf ~/Library/Application\ Support/Alcatraz
+&lt;/code&gt;&lt;/pre&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;安装Alcatraz&quot;&gt;&lt;a href=&quot;#安装Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;安装Alcatraz&quot;&gt;&lt;/a&gt;安装Alcatraz&lt;/h2&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -fsSL &lt;span class=&quot;symbol&quot;&gt;https:&lt;/span&gt;/&lt;span class=&quot;regexp&quot;&gt;/raw.github.com/supermarin&lt;/span&gt;&lt;span class=&quot;regexp&quot;&gt;/Alcatraz/master&lt;/span&gt;&lt;span class=&quot;regexp&quot;&gt;/Scripts/install&lt;/span&gt;.sh &lt;span class=&quot;params&quot;&gt;| sh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;xcode更新之后插件失效的解决办法&lt;br&gt;&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;defaults &lt;span class=&quot;keyword&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;regexp&quot;&gt;/Applications/&lt;/span&gt;Xcode.app&lt;span class=&quot;regexp&quot;&gt;/Contents/I&lt;/span&gt;nfo DVTPlugInCompatibilityUUID&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;重启xcode&lt;/p&gt;
+&lt;h2 id=&quot;安装Alcatraz&quot;&gt;&lt;a href=&quot;#安装Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;安装Alcatraz&quot;&gt;&lt;/a&gt;安装Alcatraz&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;xcode更新之后插件失效的解决办法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;重启xcode&lt;/p&gt;
 &lt;p&gt;##我正在使用的插件&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;BackLight // 定位当前编辑行数&lt;/li&gt;
@@ -133,7 +296,10 @@
     <summary type="html">
     
       &lt;p&gt;一款类似cocoapod管理第三方工具的管理工具，用来管理常用的插件:&lt;a href=&quot;https://github.com/wawsc5354524/Alcatraz&quot;&gt;Alcatraz&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;卸载Alcatraz&quot;&gt;&lt;a href=&quot;#卸载Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;卸载Alcatraz&quot;&gt;&lt;/a&gt;卸载Alcatraz&lt;/h2&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Alcatraz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;卸载Alcatraz&quot;&gt;&lt;a href=&quot;#卸载Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;卸载Alcatraz&quot;&gt;&lt;/a&gt;卸载Alcatraz&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin
+
+rm -rf ~/Library/Application\ Support/Alcatraz
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -169,8 +335,8 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&quot;http://brew.sh/index_zh-cn.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo的官方网站&lt;/a&gt;，也是基于Github构建的网站。&lt;/p&gt;
 &lt;h3 id=&quot;Hexo环境配置&quot;&gt;&lt;a href=&quot;#Hexo环境配置&quot; class=&quot;headerlink&quot; title=&quot;Hexo环境配置&quot;&gt;&lt;/a&gt;Hexo环境配置&lt;/h3&gt;&lt;p&gt;在安装Hexo之前需要先安装一些它所依赖的环境配置&lt;br&gt;这里说一下，mac上安装一些软件的时候，我个人建议先安装一下Homebrew — &lt;a href=&quot;https://github.com/mxcl/homebrew&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github传送门&lt;/a&gt;，它相当于一个软件管理工具，不管是安装还是卸载都比较方便。&lt;br&gt;不多说，安装Homebrew也很简单，利用mac自带的ruby脚本功能，打开终端输入：&lt;/p&gt;
-&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;regexp&quot;&gt;/usr/&lt;/span&gt;bin&lt;span class=&quot;regexp&quot;&gt;/ruby -e &quot;$(curl -fsSL https:/&lt;/span&gt;&lt;span class=&quot;regexp&quot;&gt;/raw.githubusercontent.com/&lt;/span&gt;Homebrew&lt;span class=&quot;regexp&quot;&gt;/install/m&lt;/span&gt;aster&lt;span class=&quot;regexp&quot;&gt;/install)&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;安装完成后，Homebrew 的主程序安装在 /usr/local/bin/brew。&lt;br&gt;接下来安装git和node.js就简单多了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装完成后，Homebrew 的主程序安装在 /usr/local/bin/brew。&lt;br&gt;接下来安装git和node.js就简单多了。&lt;/p&gt;
 &lt;h4 id=&quot;Git安装&quot;&gt;&lt;a href=&quot;#Git安装&quot; class=&quot;headerlink&quot; title=&quot;Git安装&quot;&gt;&lt;/a&gt;Git安装&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;安装过Xcode可以直接跳过这步，因为Xcode自带Git&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -179,8 +345,13 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用 Homebrew 方式安装，Git 被安装在 /usr/local/Cellar/git/ 中&lt;/p&gt;
 &lt;h4 id=&quot;Node-js安装&quot;&gt;&lt;a href=&quot;#Node-js安装&quot; class=&quot;headerlink&quot; title=&quot;Node.js安装&quot;&gt;&lt;/a&gt;Node.js安装&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;$ brew install node 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用 Homebrew 方式安装，node 被安装在 /usr/local/Cellar/node/ 中，自带安装好npm组件&lt;br&gt;想测试自己是否安装成功了，可以新建一个简单的hello.js文件:&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; http = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;http&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;http.createServer(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;req, res&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    res.writeHead(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;, &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;Content-Type&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;text/plain&#39;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    res.end(&lt;span class=&quot;string&quot;&gt;&#39;Hello World\n&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;).listen(&lt;span class=&quot;number&quot;&gt;8808&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;127.0.0.1&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;Server running at http://127.0.0.1:8808&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;放到根目录下，然后在终端输入：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var http = require(&amp;#39;http&amp;#39;);
+http.createServer(function(req, res){
+    res.writeHead(200, {&amp;#39;Content-Type&amp;#39;: &amp;#39;text/plain&amp;#39;});
+    res.end(&amp;#39;Hello World\n&amp;#39;);
+}).listen(8808, &amp;#39;127.0.0.1&amp;#39;);
+console.log(&amp;#39;Server running at http://127.0.0.1:8808&amp;#39;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;放到根目录下，然后在终端输入：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;node hello_node.js
 Server running at http://127.0.0.1:8124/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后用浏览器打开用浏览器打开 &lt;a href=&quot;http://127.0.0.1:8124/就可以看到Hello&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://127.0.0.1:8124/就可以看到Hello&lt;/a&gt; World 字样了。&lt;/p&gt;
@@ -220,10 +391,17 @@ Server running at http://127.0.0.1:8124/
 &lt;/blockquote&gt;
 &lt;p&gt;到这里创库就创建完成了，它将会与你本地init的那个文件夹相关联，大致就是将你本地的文件夹上传到服务器，供别人访问你的博客内容。&lt;/p&gt;
 &lt;h3 id=&quot;配置本地文件&quot;&gt;&lt;a href=&quot;#配置本地文件&quot; class=&quot;headerlink&quot; title=&quot;配置本地文件&quot;&gt;&lt;/a&gt;配置本地文件&lt;/h3&gt;&lt;p&gt;打开我们init好的那个文件夹，找到_config.yml文件，这就是全局配置文件，通过配置里面的参数，来与我们的github上得仓库进行关联。&lt;br&gt;打开这个文件，找到最下面：&lt;/p&gt;
-&lt;figure class=&quot;highlight dts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;## Docs: https:&lt;span class=&quot;comment&quot;&gt;//hexo.io/docs/deployment.html&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;deploy:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  type:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这段代码，然后修改成，我这样&lt;/p&gt;
-&lt;figure class=&quot;highlight dts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;deploy:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;	type:&lt;/span&gt; git &lt;span class=&quot;meta&quot;&gt;#部署类型，使用github&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;	repository:&lt;/span&gt; https:&lt;span class=&quot;comment&quot;&gt;//github.com/chaserr/chaserr.github.io.git #部署的仓库的SSH&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;	branch:&lt;/span&gt; master &lt;span class=&quot;meta&quot;&gt;#部署分支， 一般使用master主分支&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;	message:&lt;/span&gt; update &lt;span class=&quot;meta&quot;&gt;#默认类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这里有两个重要的参数：（其他两个参数可以参照着写）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这段代码，然后修改成，我这样&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deploy:
+    type: git #部署类型，使用github
+    repository: https://github.com/chaserr/chaserr.github.io.git #部署的仓库的SSH
+    branch: master #部署分支， 一般使用master主分支
+    message: update #默认类型
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里有两个重要的参数：（其他两个参数可以参照着写）&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;type&lt;/code&gt;：Hexo之前的版本好像是填github，但是Hexo3.0之后，必须填git，我的Hexo是最新的3.2.0，填写git。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;repository&lt;/code&gt;这个参数，很重要，它就是用来链接我们在github上创建的创库。看网上有的人使用SSH，但是SSH配置起来相对有些复杂，我这里用的是HTTPS方式，也是可以成功的。&lt;/li&gt;
@@ -263,34 +441,108 @@ Server running at http://127.0.0.1:8124/
 &lt;pre&gt;&lt;code&gt;hexo s -- debug
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后本地访问&lt;a href=&quot;http://localhost:4000，看看效果，在没有部署到github上之前，一般都可以这样在本地进行预览。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000，看看效果，在没有部署到github上之前，一般都可以这样在本地进行预览。&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;关于站点全局_config.yml配置文件的其他一些参数：&lt;/p&gt;
-&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Site&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;title:&lt;/span&gt; 朝夕 &lt;span class=&quot;comment&quot;&gt;#博客名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;subtitle:&lt;/span&gt; 朝闻道，夕死可以。 &lt;span class=&quot;comment&quot;&gt;#博客副标题&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;description:&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#给搜索引擎看的，对站点的描述，可以自定义&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;author:&lt;/span&gt; 童星 &lt;span class=&quot;comment&quot;&gt;#作者名称，显示在网站最底部&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;language:&lt;/span&gt; zh-Hans &lt;span class=&quot;comment&quot;&gt;#语言选择，这里表示中文&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;email:&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#你的联系邮箱&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;timezone:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# URL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;url:&lt;/span&gt; chaserr.github.io  &lt;span class=&quot;comment&quot;&gt;#可以填写你的站点域名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;root:&lt;/span&gt; /&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;permalink:&lt;/span&gt; :year/:month/:day/:title/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;permalink_defaults:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Directory&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;source_dir:&lt;/span&gt; source&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;public_dir:&lt;/span&gt; public&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;tag_dir:&lt;/span&gt; tags&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;archive_dir:&lt;/span&gt; archives&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;category_dir:&lt;/span&gt; categories&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;code_dir:&lt;/span&gt; downloads/code&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;i18n_dir:&lt;/span&gt; :lang&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;skip_render:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Writing , 设置生成博文的默认格式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;new_post_name:&lt;/span&gt; :title.md &lt;span class=&quot;comment&quot;&gt;# File name of new posts&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;default_layout:&lt;/span&gt; post &lt;span class=&quot;comment&quot;&gt;#默认布局&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;titlecase:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# Transform title into titlecase&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;external_link:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# Open external links in new tab&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;filename_case:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#把文件名称转换为（1）小写或者大写&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;render_drafts:&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#显示草稿&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;post_asset_folder:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;#启动Asset文件夹&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;relative_link:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#把链接改为与根目录相对位置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;future:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#显示未来的文章&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;highlight:&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#代码块的设置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  enable:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  line_number:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  auto_detect:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  tab_replace:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;默认的大致就这些，另外给主题添加相关功能的时候后面会慢慢加上其他一些参数。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Site
+title: 朝夕 #博客名
+subtitle: 朝闻道，夕死可以。 #博客副标题
+description: #给搜索引擎看的，对站点的描述，可以自定义
+author: 童星 #作者名称，显示在网站最底部
+language: zh-Hans #语言选择，这里表示中文
+email: #你的联系邮箱
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as &amp;#39;http://yoursite.com/child&amp;#39; and root as &amp;#39;/child/&amp;#39;
+url: chaserr.github.io  #可以填写你的站点域名
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing , 设置生成博文的默认格式
+new_post_name: :title.md # File name of new posts
+default_layout: post #默认布局
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0 #把文件名称转换为（1）小写或者大写
+render_drafts: #显示草稿
+post_asset_folder: false  #启动Asset文件夹
+relative_link: false #把链接改为与根目录相对位置
+future: true #显示未来的文章
+highlight: #代码块的设置
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;默认的大致就这些，另外给主题添加相关功能的时候后面会慢慢加上其他一些参数。&lt;/p&gt;
 &lt;h4 id=&quot;给站点添加rss和sitemap功能&quot;&gt;&lt;a href=&quot;#给站点添加rss和sitemap功能&quot; class=&quot;headerlink&quot; title=&quot;给站点添加rss和sitemap功能&quot;&gt;&lt;/a&gt;给站点添加rss和sitemap功能&lt;/h4&gt;&lt;p&gt;打开终端，切换到站点根目录，输入：&lt;/p&gt;
-&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install hexo-generator-feed&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install hexo-generator-sitemap&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;在全局配置文件_config.yml进行插件配置：（为防止好找，在最下面进行配置）&lt;/p&gt;
-&lt;figure class=&quot;highlight dts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#插件配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;plugins:&lt;/span&gt; hexo-generator-feed &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#- hexo-generator-sitemap &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;feed:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  type:&lt;/span&gt; atom &lt;span class=&quot;meta&quot;&gt;##feed类型 atom或者rss2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  path:&lt;/span&gt; atom.xml &lt;span class=&quot;meta&quot;&gt;##feed路径&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  limit:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;  &lt;span class=&quot;meta&quot;&gt;##feed文章最小数量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&quot;给站点添加本地搜索功能&quot;&gt;&lt;a href=&quot;#给站点添加本地搜索功能&quot; class=&quot;headerlink&quot; title=&quot;给站点添加本地搜索功能&quot;&gt;&lt;/a&gt;给站点添加本地搜索功能&lt;/h4&gt;&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;$ npm install hexo-generator-feed
+$ npm install hexo-generator-sitemap
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在全局配置文件_config.yml进行插件配置：（为防止好找，在最下面进行配置）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#插件配置
+plugins: hexo-generator-feed 
+#- hexo-generator-sitemap 
+
+feed:
+  type: atom ##feed类型 atom或者rss2
+  path: atom.xml ##feed路径
+  limit: 20  ##feed文章最小数量
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;给站点添加本地搜索功能&quot;&gt;&lt;a href=&quot;#给站点添加本地搜索功能&quot; class=&quot;headerlink&quot; title=&quot;给站点添加本地搜索功能&quot;&gt;&lt;/a&gt;给站点添加本地搜索功能&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;使用swiftype添加站内搜索&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;去swiftype官网注册一个账号，按照步骤选择自己喜欢的搜索样式，配置完成后，选择install，然后会出现&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/Snip20160531_10.png&quot; alt=&quot;Snip20160531_10&quot;&gt;&lt;br&gt;如图所示，我不知道为什么，这个代码框无法滚动，所以我们必须将它全部复制出来&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;w,d,t,u,n,s,e&lt;/span&gt;)&lt;/span&gt;&amp;#123;w[&lt;span class=&quot;string&quot;&gt;&#39;SwiftypeObject&#39;&lt;/span&gt;]=n;w[n]=w[n]||&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  (w[n].q=w[n].q||[]).push(&lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;);&amp;#125;;s=d.createElement(t);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  e=d.getElementsByTagName(t)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];s.async=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;s.src=u;e.parentNode.insertBefore(s,e);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;)(&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;,&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;script&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;//s.swiftypecdn.com/install/v2/st.js&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;_st&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  _st(&lt;span class=&quot;string&quot;&gt;&#39;install&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;7Qoo1zkKbfSsp5bzUjQu&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;2.0.0&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后复制install —-2.0.0之间的一段代码，添加到全局配置文件里：&lt;/p&gt;
-&lt;figure class=&quot;highlight avrasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# 搜索插件 hexo-generator-sitemap&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;swiftype_key:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;Qoo1zkKbfSsp5bzUjQu&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+  (function(w,d,t,u,n,s,e){w[&amp;#39;SwiftypeObject&amp;#39;]=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,&amp;#39;script&amp;#39;,&amp;#39;//s.swiftypecdn.com/install/v2/st.js&amp;#39;,&amp;#39;_st&amp;#39;);
+
+  _st(&amp;#39;install&amp;#39;,&amp;#39;7Qoo1zkKbfSsp5bzUjQu&amp;#39;,&amp;#39;2.0.0&amp;#39;);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后复制install —-2.0.0之间的一段代码，添加到全局配置文件里：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 搜索插件 hexo-generator-sitemap
+swiftype_key: 7Qoo1zkKbfSsp5bzUjQu
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;添加本地搜索&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;直接在全局配置文件添加参数：&lt;/p&gt;
-&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;search:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  path: search.&lt;span class=&quot;keyword&quot;&gt;xml&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;title&quot;&gt;field&lt;/span&gt;: post&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;search.xml这些都是默认带有的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;search:
+  path: search.xml
+  field: post
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;search.xml这些都是默认带有的&lt;/p&gt;
 &lt;h4 id=&quot;给站点添加友情链接功能&quot;&gt;&lt;a href=&quot;#给站点添加友情链接功能&quot; class=&quot;headerlink&quot; title=&quot;给站点添加友情链接功能&quot;&gt;&lt;/a&gt;给站点添加友情链接功能&lt;/h4&gt;&lt;p&gt;直接在全局配置文件添加参数：&lt;/p&gt;
-&lt;figure class=&quot;highlight dts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;links_title:&lt;/span&gt; 友情链接&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;links:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;meta&quot;&gt;#百度: http:&lt;span class=&quot;comment&quot;&gt;//www.baidu.com/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;meta&quot;&gt;#新浪: http:&lt;span class=&quot;comment&quot;&gt;//example.com/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;其实也可以新建一个文件专门放置这些需要链接的网站，这样方便管理，不必每次都对全局配置文件进行更改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;links_title: 友情链接
+links:
+    #百度: http://www.baidu.com/
+    #新浪: http://example.com/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其实也可以新建一个文件专门放置这些需要链接的网站，这样方便管理，不必每次都对全局配置文件进行更改&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果没有链接，那么友情链接不会显示，为了测试，可以随便写一个&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&quot;给站点添加多说评论、热评、分享功能&quot;&gt;&lt;a href=&quot;#给站点添加多说评论、热评、分享功能&quot; class=&quot;headerlink&quot; title=&quot;给站点添加多说评论、热评、分享功能&quot;&gt;&lt;/a&gt;给站点添加多说评论、热评、分享功能&lt;/h4&gt;&lt;p&gt;直接在全局配置文件添加参数：&lt;/p&gt;
-&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Disqus  disqus评论,  与多说类似, 国内一般使用多说&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#disqus_shortname: &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;duoshuo_shortname:&lt;/span&gt; chaser&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 多说热评文章 true 或者 false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;duoshuo_hotartical:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 多说分享服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;duoshuo_share:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;duoshuo_info:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  ua_enable:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  admin_enable:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  user_id:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	  admin_nickname:&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;# Disqus  disqus评论,  与多说类似, 国内一般使用多说
+#disqus_shortname: 
+duoshuo_shortname: chaser
+
+# 多说热评文章 true 或者 false
+duoshuo_hotartical: true
+
+# 多说分享服务
+duoshuo_share: true
+duoshuo_info:
+  ua_enable: true
+  admin_enable: false
+  user_id:
+      admin_nickname:
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;这里的&lt;code&gt;duoshuo_shortname&lt;/code&gt;是需要你去多说主页 – &lt;a href=&quot;http://duoshuo.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;传送门&lt;/a&gt; 注册一个账号，然后填写你的多说域名，这里填写的就是你在多说填写的域名&lt;br&gt;例如：我的是：&lt;code&gt;http://chaser.duoshuo.com/&lt;/code&gt;，那么我填写的就是&lt;code&gt;chaser&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;这里配置的是所有页面都支持评论，但是后面有的页面不需要，比如标签页，分类页，关于等等，那么就单独设置。&lt;/li&gt;
@@ -298,13 +550,23 @@ Server running at http://127.0.0.1:8124/
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;Next主题的优化&quot;&gt;&lt;a href=&quot;#Next主题的优化&quot; class=&quot;headerlink&quot; title=&quot;Next主题的优化&quot;&gt;&lt;/a&gt;Next主题的优化&lt;/h3&gt;&lt;p&gt;这之前，先对主题配置文件进行一些配置，打开博客根目录/themes/next，这个路径，然后打开，主题配置文件_config.yml：&lt;/p&gt;
 &lt;h4 id=&quot;配置个人头像&quot;&gt;&lt;a href=&quot;#配置个人头像&quot; class=&quot;headerlink&quot; title=&quot;配置个人头像&quot;&gt;&lt;/a&gt;配置个人头像&lt;/h4&gt;&lt;p&gt;在主题配置文件里找到avatar字段，(如果没有就添加)&lt;/p&gt;
-&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# Sidebar Avatar&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# in theme directory(source/images): /images/avatar.jpg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# in site  directory(source/uploads): /uploads/avatar.jpg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;avatar: http:&lt;span class=&quot;comment&quot;&gt;//ww4.sinaimg.cn/small/937882b5jw1f4db4lroy9j20hs0npmy6.jpg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;# Sidebar Avatar
+# in theme directory(source/images): /images/avatar.jpg
+# in site  directory(source/uploads): /uploads/avatar.jpg
+avatar: http://ww4.sinaimg.cn/small/937882b5jw1f4db4lroy9j20hs0npmy6.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;我采用的是地址，并没有将图片放在本地（采用新浪博客相册）&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&quot;Next主题选择&quot;&gt;&lt;a href=&quot;#Next主题选择&quot; class=&quot;headerlink&quot; title=&quot;Next主题选择&quot;&gt;&lt;/a&gt;Next主题选择&lt;/h4&gt;&lt;p&gt;在主题配置文件_config.yml里，找到scheme字段&lt;/p&gt;
-&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# ---------------------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# Scheme Settings&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# ---------------------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# Schemes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#scheme: Muse&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#scheme: Mist&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scheme: Pisces&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
+&lt;pre&gt;&lt;code&gt;# ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
+
+# Schemes
+#scheme: Muse
+#scheme: Mist
+scheme: Pisces
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白&lt;/li&gt;
 &lt;li&gt;Mist - Muse 的紧凑版本，整洁有序的单栏外观&lt;/li&gt;
 &lt;li&gt;Pisces - 双栏 Scheme，小家碧玉似的清新&lt;br&gt;我选择的是第三种，去掉&lt;code&gt;#&lt;/code&gt;，然后把第一个前面加上&lt;code&gt;#&lt;/code&gt;&lt;blockquote&gt;
@@ -313,8 +575,35 @@ Server running at http://127.0.0.1:8124/
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;Next主题菜单配置&quot;&gt;&lt;a href=&quot;#Next主题菜单配置&quot; class=&quot;headerlink&quot; title=&quot;Next主题菜单配置&quot;&gt;&lt;/a&gt;Next主题菜单配置&lt;/h4&gt;&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ---------------------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Menu Settings&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ---------------------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -&amp;gt; archives)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;menu:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  home:&lt;/span&gt; / &lt;span class=&quot;comment&quot;&gt;#主页&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  categories:&lt;/span&gt; /categories &lt;span class=&quot;comment&quot;&gt;#分类页面&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  about:&lt;/span&gt; /about &lt;span class=&quot;comment&quot;&gt;#关于&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  archives:&lt;/span&gt; /archives &lt;span class=&quot;comment&quot;&gt;#归档&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  tags:&lt;/span&gt; /tags &lt;span class=&quot;comment&quot;&gt;#标签&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  commonweal:&lt;/span&gt; /&lt;span class=&quot;number&quot;&gt;404.&lt;/span&gt;html  &lt;span class=&quot;comment&quot;&gt;#公益404&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Enable/Disable menu icons.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Icon Mapping:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   Map a menu item to a specific FontAwesome icon name.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   Key is the name of menu item and value is the name of FontAwsome icon. Key is case-senstive.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   When an question mask icon presenting up means that the item has no mapping icon.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;menu_icons:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  enable:&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#是否显示图标&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;#KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  home:&lt;/span&gt; home&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  about:&lt;/span&gt; user&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  categories:&lt;/span&gt; th&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  tags:&lt;/span&gt; tags&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  archives:&lt;/span&gt; archive&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;  commonweal:&lt;/span&gt; heartbeat&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;h4 id=&quot;Next主题菜单配置&quot;&gt;&lt;a href=&quot;#Next主题菜单配置&quot; class=&quot;headerlink&quot; title=&quot;Next主题菜单配置&quot;&gt;&lt;/a&gt;Next主题菜单配置&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;# ---------------------------------------------------------------
+# Menu Settings
+# ---------------------------------------------------------------
+
+# When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -&amp;gt; archives)
+menu:
+  home: / #主页
+  categories: /categories #分类页面
+  about: /about #关于
+  archives: /archives #归档
+  tags: /tags #标签
+  commonweal: /404.html  #公益404
+
+
+# Enable/Disable menu icons.
+# Icon Mapping:
+#   Map a menu item to a specific FontAwesome icon name.
+#   Key is the name of menu item and value is the name of FontAwsome icon. Key is case-senstive.
+#   When an question mask icon presenting up means that the item has no mapping icon.
+menu_icons:
+  enable: true #是否显示图标
+  #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
+  home: home
+  about: user
+  categories: th
+  tags: tags
+  archives: archive
+  commonweal: heartbeat
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;如果需要添加你自己自定义的菜单，那么就只需要在menu下添加相关的菜单项，然后新建页面与之匹配，然后去next主题目录的&lt;code&gt;languages&lt;/code&gt;目录下找到我们之前配置的主题所使用的语言，（我们用的是&lt;code&gt;zh-Hans&lt;/code&gt;）对其进行国际化。&lt;/p&gt;
 &lt;/li&gt;
@@ -353,15 +642,59 @@ Server running at http://127.0.0.1:8124/
 &lt;p&gt;新建一篇文章给它添加分类和标签试试吧：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;hexo new &amp;quot;Hexo教程&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过mou编辑器打开：添加&lt;code&gt;tags&lt;/code&gt;和&lt;code&gt;categories&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight yaml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;title:&lt;/span&gt; title &lt;span class=&quot;comment&quot;&gt;#文章標題&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;date:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;bullet&quot;&gt;-06&lt;/span&gt;&lt;span class=&quot;bullet&quot;&gt;-01&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;23&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;47&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;44&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#文章生成時間&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;categories:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;Hexo教程&quot;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#文章分類目錄 可以省略&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;tags:&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#文章標籤 可以省略&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	 - 标签&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	 - 标签&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt; description:&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#你對本頁的描述 可以省略&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h6 id=&quot;添加公益404页面&quot;&gt;&lt;a href=&quot;#添加公益404页面&quot; class=&quot;headerlink&quot; title=&quot;添加公益404页面&quot;&gt;&lt;/a&gt;添加公益404页面&lt;/h6&gt;&lt;p&gt;直接在根目录的source路径下，新建一个404.html文件，就可以了&lt;br&gt;附：404.html&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;!DOCTYPE HTML&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;content-type&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/html;charset=utf-8;&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;X-UA-Compatible&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;IE=edge,chrome=1&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;robots&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;all&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;robots&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;index,follow&quot;&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;http://www.qq.com/404/search_children.js&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;homePageUrl&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;your site url &quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;attr&quot;&gt;homePageName&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;回到我的主页&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: title #文章標題
+date: 2016-06-01 23:47:44 #文章生成時間
+categories: &amp;quot;Hexo教程&amp;quot; #文章分類目錄 可以省略
+tags: #文章標籤 可以省略
+     - 标签1
+     - 标签2
+ description: #你對本頁的描述 可以省略
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&quot;添加公益404页面&quot;&gt;&lt;a href=&quot;#添加公益404页面&quot; class=&quot;headerlink&quot; title=&quot;添加公益404页面&quot;&gt;&lt;/a&gt;添加公益404页面&lt;/h6&gt;&lt;p&gt;直接在根目录的source路径下，新建一个404.html文件，就可以了&lt;br&gt;附：404.html&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE HTML&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;meta http-equiv=&amp;quot;content-type&amp;quot; content=&amp;quot;text/html;charset=utf-8;&amp;quot;/&amp;gt;
+  &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=edge,chrome=1&amp;quot; /&amp;gt;
+  &amp;lt;meta name=&amp;quot;robots&amp;quot; content=&amp;quot;all&amp;quot; /&amp;gt;
+  &amp;lt;meta name=&amp;quot;robots&amp;quot; content=&amp;quot;index,follow&amp;quot;/&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;http://www.qq.com/404/search_children.js&amp;quot;
+        charset=&amp;quot;utf-8&amp;quot; homePageUrl=&amp;quot;your site url &amp;quot;
+        homePageName=&amp;quot;回到我的主页&amp;quot;&amp;gt;
+&amp;lt;/script&amp;gt;
+
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;提示：&lt;code&gt;homePageUrl&lt;/code&gt;记得修改成你的博客域名&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;Next主题侧边栏社交链接&quot;&gt;&lt;a href=&quot;#Next主题侧边栏社交链接&quot; class=&quot;headerlink&quot; title=&quot;Next主题侧边栏社交链接&quot;&gt;&lt;/a&gt;Next主题侧边栏社交链接&lt;/h3&gt;&lt;p&gt;打开主题配置文件_config.yml：&lt;/p&gt;
-&lt;figure class=&quot;highlight dts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# ---------------------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# Sidebar Settings&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# ---------------------------------------------------------------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# Social Links&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;social:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;	GitHub:&lt;/span&gt; https:&lt;span class=&quot;comment&quot;&gt;//github.com/chaserr&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	新浪微博: http:&lt;span class=&quot;comment&quot;&gt;//weibo.com/lovaxiang&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;	FaceBook:&lt;/span&gt; https:&lt;span class=&quot;comment&quot;&gt;//www.facebook.com/x.tongxing&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	GooglePlus : https:&lt;span class=&quot;comment&quot;&gt;//plus.google.com/u/0/117848542581702766384&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	豆瓣: https:&lt;span class=&quot;comment&quot;&gt;//www.douban.com/people/lovax/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# Social Links Icons&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;social_icons:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt; enable:&lt;/span&gt; true &lt;span class=&quot;meta&quot;&gt;#控制是否显示图标&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;# Icon Mappings.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;# KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  GitHub:&lt;/span&gt; github&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  新浪微博: weibo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  FaceBook:&lt;/span&gt; facebook&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  GooglePlus:&lt;/span&gt; google-plus&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  豆瓣: globe  &lt;span class=&quot;meta&quot;&gt;#douban&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;# ---------------------------------------------------------------
+# Sidebar Settings
+# ---------------------------------------------------------------
+# Social Links
+social:
+    GitHub: https://github.com/chaserr
+    新浪微博: http://weibo.com/lovaxiang
+    FaceBook: https://www.facebook.com/x.tongxing
+    GooglePlus : https://plus.google.com/u/0/117848542581702766384
+    豆瓣: https://www.douban.com/people/lovax/
+
+# Social Links Icons
+social_icons:
+ enable: true #控制是否显示图标
+  # Icon Mappings.
+  # KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome
+  GitHub: github
+  新浪微博: weibo
+  FaceBook: facebook
+  GooglePlus: google-plus
+  豆瓣: globe  #douban
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;这里的配置和Menu里一样，&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;social&lt;/code&gt;后面跟着的是你的社交网站的主页地址&lt;/li&gt;
@@ -370,14 +703,20 @@ Server running at http://127.0.0.1:8124/
 &lt;p&gt;不过豆瓣icon好像是没有的，我在github上issue过，他们给我的解决方案就是去官网找到图标，放到本地资源、。、&lt;br&gt;所以亲们也不用去issue了。直接用别的代替吧，如果真想显示你的豆瓣的话。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;开启打赏功能&quot;&gt;&lt;a href=&quot;#开启打赏功能&quot; class=&quot;headerlink&quot; title=&quot;开启打赏功能&quot;&gt;&lt;/a&gt;开启打赏功能&lt;/h3&gt;&lt;p&gt;很简单，打开主题配置文件_config.yml&lt;br&gt;添加字段：&lt;/p&gt;
-&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;reward_comment:&lt;/span&gt; 坚持原创技术分享，您的支持将鼓励我继续创作！&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;alipay:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;//ww3.sinaimg.cn/small/937882b5jw1f4dalzfc5nj20p00vu0um.jpg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
+alipay: http://ww3.sinaimg.cn/small/937882b5jw1f4dalzfc5nj20p00vu0um.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;alipay:&lt;/code&gt; 填写的是支付宝或者微信的收款二维码图片地址。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;给文章添加阅读量&quot;&gt;&lt;a href=&quot;#给文章添加阅读量&quot; class=&quot;headerlink&quot; title=&quot;给文章添加阅读量&quot;&gt;&lt;/a&gt;给文章添加阅读量&lt;/h3&gt;&lt;h4 id=&quot;配置LeanCloud&quot;&gt;&lt;a href=&quot;#配置LeanCloud&quot; class=&quot;headerlink&quot; title=&quot;配置LeanCloud&quot;&gt;&lt;/a&gt;配置LeanCloud&lt;/h4&gt;&lt;p&gt;打开&lt;a href=&quot;https://leancloud.cn/login.html#/signin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeanCloud&lt;/a&gt;官网，注册一个账号，完成激活&lt;br&gt;&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/Snip20160601_14.png&quot; alt=&quot;Snip20160531_14&quot;&gt;&lt;br&gt;点击创建新应用之后，进入新创建的应用&lt;br&gt;&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/Snip20160601_15.png&quot; alt=&quot;Snip20160531_15&quot;&gt;&lt;br&gt;点击创建Class，类名叫做&lt;code&gt;Counter&lt;/code&gt;。&lt;/p&gt;
 &lt;h4 id=&quot;修改主题配置文件-config-yml&quot;&gt;&lt;a href=&quot;#修改主题配置文件-config-yml&quot; class=&quot;headerlink&quot; title=&quot;修改主题配置文件_config.yml&quot;&gt;&lt;/a&gt;修改主题配置文件_config.yml&lt;/h4&gt;&lt;p&gt;打开主题配置文件，找到&lt;code&gt;leancloud_visitors&lt;/code&gt;字段或者创建&lt;/p&gt;
-&lt;figure class=&quot;highlight dts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# Show number of visitors to each article.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# You can visit https:&lt;span class=&quot;comment&quot;&gt;//leancloud.cn get AppID and AppKey.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;leancloud_visitors:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  enable:&lt;/span&gt; true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  app_id:&lt;/span&gt; ytnok33cvEchgidigtb0WumC-gzGzoHsz &lt;span class=&quot;meta&quot;&gt;#&amp;lt;AppID&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;  app_key:&lt;/span&gt; SrcG8cy1VhONurWBoEBGGHML &lt;span class=&quot;meta&quot;&gt;#&amp;lt;AppKEY&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;# Show number of visitors to each article.
+# You can visit https://leancloud.cn get AppID and AppKey.
+leancloud_visitors:
+  enable: true
+  app_id: ytnok33cvEchgidigtb0WumC-gzGzoHsz #&amp;lt;AppID&amp;gt;
+  app_key: SrcG8cy1VhONurWBoEBGGHML #&amp;lt;AppKEY&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;app_id&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;app_key&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/Snip20160601_18.png&quot; alt=&quot;Snip20160531_18&quot;&gt;&lt;/li&gt;
@@ -385,23 +724,275 @@ Server running at http://127.0.0.1:8124/
 &lt;p&gt;将对应key的value复制填写即可。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&quot;添加lean-analytics-swing&quot;&gt;&lt;a href=&quot;#添加lean-analytics-swing&quot; class=&quot;headerlink&quot; title=&quot;添加lean-analytics.swing&quot;&gt;&lt;/a&gt;添加lean-analytics.swing&lt;/h4&gt;&lt;p&gt;在主题目录下的\layout_scripts路径下，新建名为：&lt;code&gt;lean-analytics.swing&lt;/code&gt;的文件，&lt;br&gt;这里贴上&lt;code&gt;lean-analytics.swing&lt;/code&gt;代码&lt;/p&gt;
-&lt;figure class=&quot;highlight django&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;70&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;71&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;72&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;73&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;74&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;75&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;76&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;77&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;78&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;79&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;80&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;81&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;82&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;83&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;84&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;85&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;86&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;87&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;88&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;89&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;90&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;91&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;92&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;93&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;94&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;95&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;96&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;97&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;98&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;99&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;100&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;name&quot;&gt;if&lt;/span&gt;&lt;/span&gt; theme.leancloud_visitors.enable %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;&amp;#123;# custom analytics part create by xiamo #&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;AV.initialize(&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;template-variable&quot;&gt;&amp;#123;&amp;#123;theme.leancloud_visitors.app_id&amp;#125;&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;, &quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;template-variable&quot;&gt;&amp;#123;&amp;#123;theme.leancloud_visitors.app_key&amp;#125;&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;undefined&quot;&gt;&quot;);&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showTime&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;Counter&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; query = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AV.Query(Counter);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; entries = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; $visitors = $(&lt;span class=&quot;string&quot;&gt;&quot;.leancloud_visitors&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      $visitors.each(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        entries.push( $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).attr(&lt;span class=&quot;string&quot;&gt;&quot;id&quot;&lt;/span&gt;).trim() );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      query.containedIn(&lt;span class=&quot;string&quot;&gt;&#39;url&#39;&lt;/span&gt;, entries);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      query.find()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .done(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;results&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; COUNT_CONTAINER_REF = &lt;span class=&quot;string&quot;&gt;&#39;.leancloud-visitors-count&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (results.length === &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $visitors.find(COUNT_CONTAINER_REF).text(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; results.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; item = results[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; url = item.get(&lt;span class=&quot;string&quot;&gt;&#39;url&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; time = item.get(&lt;span class=&quot;string&quot;&gt;&#39;time&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; element = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(url);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            $(element).find(COUNT_CONTAINER_REF).text(time);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        .fail(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;object, error&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&quot;Error: &quot;&lt;/span&gt; + error.code + &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt; + error.message);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;addCount&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;Counter&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; $visitors = $(&lt;span class=&quot;string&quot;&gt;&quot;.leancloud_visitors&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; url = $visitors.attr(&lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;).trim();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; title = $visitors.attr(&lt;span class=&quot;string&quot;&gt;&#39;data-flag-title&#39;&lt;/span&gt;).trim();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; query = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AV.Query(Counter);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      query.equalTo(&lt;span class=&quot;string&quot;&gt;&quot;url&quot;&lt;/span&gt;, url);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      query.find(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        success: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;results&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (results.length &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; counter = results[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            counter.fetchWhenSave(&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            counter.increment(&lt;span class=&quot;string&quot;&gt;&quot;time&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            counter.save(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              success: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;counter&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; $element = $(&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(url));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $element.find(&lt;span class=&quot;string&quot;&gt;&#39;.leancloud-visitors-count&#39;&lt;/span&gt;).text(counter.get(&lt;span class=&quot;string&quot;&gt;&#39;time&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              error: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;counter, error&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;Failed to save Visitor num, with error message: &#39;&lt;/span&gt; + error.message);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; newcounter = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Counter();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;/* Set ACL */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; acl = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AV.ACL();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            acl.setPublicReadAccess(&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            acl.setPublicWriteAccess(&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            newcounter.setACL(acl);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;/* End Set ACL */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            newcounter.set(&lt;span class=&quot;string&quot;&gt;&quot;title&quot;&lt;/span&gt;, title);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            newcounter.set(&lt;span class=&quot;string&quot;&gt;&quot;url&quot;&lt;/span&gt;, url);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            newcounter.set(&lt;span class=&quot;string&quot;&gt;&quot;time&quot;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            newcounter.save(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              success: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;newcounter&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; $element = $(&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(url));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                $element.find(&lt;span class=&quot;string&quot;&gt;&#39;.leancloud-visitors-count&#39;&lt;/span&gt;).text(newcounter.get(&lt;span class=&quot;string&quot;&gt;&#39;time&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              error: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;newcounter, error&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;Failed to create&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        error: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;error&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;Error:&#39;&lt;/span&gt; + error.code + &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt; + error.message);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; Counter = AV.Object.extend(&lt;span class=&quot;string&quot;&gt;&quot;Counter&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ($(&lt;span class=&quot;string&quot;&gt;&#39;.leancloud_visitors&#39;&lt;/span&gt;).length == &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        addCount(Counter);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ($(&lt;span class=&quot;string&quot;&gt;&#39;.post-title-link&#39;&lt;/span&gt;).length &amp;gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        showTime(Counter);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;name&quot;&gt;endif&lt;/span&gt;&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;{% if theme.leancloud_visitors.enable %}
+
+  {# custom analytics part create by xiamo #}
+  &lt;script src=&quot;https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;AV.initialize(&quot;{{theme.leancloud_visitors.app_id}}&quot;, &quot;{{theme.leancloud_visitors.app_key}}&quot;);&lt;/script&gt;
+  &lt;script&gt;
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(&quot;.leancloud_visitors&quot;);
+
+      $visitors.each(function () {
+        entries.push( $(this).attr(&quot;id&quot;).trim() );
+      });
+
+      query.containedIn(&#39;url&#39;, entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = &#39;.leancloud-visitors-count&#39;;
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i &lt; results.length; i++) {
+            var item = results[i];
+            var url = item.get(&#39;url&#39;);
+            var time = item.get(&#39;time&#39;);
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log(&quot;Error: &quot; + error.code + &quot; &quot; + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(&quot;.leancloud_visitors&quot;);
+      var url = $visitors.attr(&#39;id&#39;).trim();
+      var title = $visitors.attr(&#39;data-flag-title&#39;).trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo(&quot;url&quot;, url);
+      query.find({
+        success: function(results) {
+          if (results.length &gt; 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment(&quot;time&quot;);
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find(&#39;.leancloud-visitors-count&#39;).text(counter.get(&#39;time&#39;));
+              },
+              error: function(counter, error) {
+                console.log(&#39;Failed to save Visitor num, with error message: &#39; + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set(&quot;title&quot;, title);
+            newcounter.set(&quot;url&quot;, url);
+            newcounter.set(&quot;time&quot;, 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find(&#39;.leancloud-visitors-count&#39;).text(newcounter.get(&#39;time&#39;));
+              },
+              error: function(newcounter, error) {
+                console.log(&#39;Failed to create&#39;);
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log(&#39;Error:&#39; + error.code + &quot; &quot; + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend(&quot;Counter&quot;);
+      if ($(&#39;.leancloud_visitors&#39;).length == 1) {
+        addCount(Counter);
+      } else if ($(&#39;.post-title-link&#39;).length &gt; 1) {
+        showTime(Counter);
+      }
+    });
+  &lt;/script&gt;
+
+{% endif %}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;网上也有人贴出来这部分代码，但是会出现阅读量出现重复情况，这里的代码是经过测试后出现的，准确无误。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&quot;修改post-swing文件&quot;&gt;&lt;a href=&quot;#修改post-swing文件&quot; class=&quot;headerlink&quot; title=&quot;修改post.swing文件&quot;&gt;&lt;/a&gt;修改post.swing文件&lt;/h4&gt;&lt;p&gt;打开主题目录\layout_macro路径,找到post.swig文件，找到&lt;code&gt;LeanCould PageView #&lt;/code&gt;字样,去掉 其中一个&lt;code&gt;&amp;amp;nbsp; | &amp;amp;nbsp&lt;/code&gt;，否则部署之后会出现双&lt;code&gt;||&lt;/code&gt;。&lt;/p&gt;
 &lt;h4 id=&quot;修改layout-swing文件&quot;&gt;&lt;a href=&quot;#修改layout-swing文件&quot; class=&quot;headerlink&quot; title=&quot;修改layout.swing文件&quot;&gt;&lt;/a&gt;修改layout.swing文件&lt;/h4&gt;&lt;p&gt;打开主题目录\layout路径，找到_layout.swing&lt;br&gt;搜索&lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;标签，在其上方添加代码：&lt;/p&gt;
-&lt;figure class=&quot;highlight django&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;name&quot;&gt;if&lt;/span&gt;&lt;/span&gt; theme.leancloud_visitors.enable %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;name&quot;&gt;include&lt;/span&gt;&lt;/span&gt; &#39;_scripts/lean-analytics.swig&#39; %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;% &lt;span class=&quot;name&quot;&gt;&lt;span class=&quot;name&quot;&gt;endif&lt;/span&gt;&lt;/span&gt; %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;给页面添加High一下&quot;&gt;&lt;a href=&quot;#给页面添加High一下&quot; class=&quot;headerlink&quot; title=&quot;给页面添加High一下&quot;&gt;&lt;/a&gt;给页面添加High一下&lt;/h3&gt;&lt;p&gt;打开&lt;code&gt;博客根目录\themes\next\layout_partials\header.swig&lt;/code&gt;，在&lt;code&gt;&amp;lt;ul&amp;gt; ... /ul&amp;gt;&lt;/code&gt;标签之间加入以下代码：&lt;/p&gt;
-&lt;figure class=&quot;highlight golo&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;70&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;71&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;72&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;73&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;74&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;75&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;76&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;77&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;78&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;79&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;80&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;81&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;82&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;83&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;84&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;85&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;86&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;87&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;88&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;89&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;90&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;91&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;92&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;93&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;94&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;95&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;96&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;97&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;98&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;99&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;100&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;101&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;102&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;103&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;104&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;105&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;106&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;107&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;108&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;109&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;110&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;111&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;112&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;113&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;114&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;115&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;116&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;117&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;118&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;119&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;120&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;121&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;122&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;123&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;124&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;125&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;126&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;127&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;128&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;129&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;130&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;131&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;132&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;133&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;134&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;135&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;136&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;137&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;138&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;139&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;140&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;141&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;142&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;143&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;144&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;145&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;146&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;147&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;148&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;149&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;150&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;li&amp;gt; &amp;lt;a title=&lt;span class=&quot;string&quot;&gt;&quot;把这个链接拖到你的Chrome收藏夹工具栏中&quot;&lt;/span&gt; href=&#39;javascript:(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; c() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = document.createElement(&lt;span class=&quot;string&quot;&gt;&quot;link&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.setAttribute(&lt;span class=&quot;string&quot;&gt;&quot;type&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;text/css&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.setAttribute(&lt;span class=&quot;string&quot;&gt;&quot;rel&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.setAttribute(&lt;span class=&quot;string&quot;&gt;&quot;href&quot;&lt;/span&gt;, f);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.setAttribute(&lt;span class=&quot;string&quot;&gt;&quot;class&quot;&lt;/span&gt;, l);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        document.body.appendChild(e)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; h() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = document.getElementsByClassName(l);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; t = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; t &amp;lt; e.length; t++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            document.body.removeChild(e[t])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; p() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = document.createElement(&lt;span class=&quot;string&quot;&gt;&quot;div&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.setAttribute(&lt;span class=&quot;string&quot;&gt;&quot;class&quot;&lt;/span&gt;, a);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        document.body.appendChild(e);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        setTimeout(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            document.body.removeChild(e)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; d(e) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            height : e.offsetHeight,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            width : e.offsetWidth&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; v(i) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; s = d(i);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; s.height &amp;gt; e &amp;amp;&amp;amp; s.height &amp;lt; n &amp;amp;&amp;amp; s.width &amp;gt; t &amp;amp;&amp;amp; s.width &amp;lt; r&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; m(e) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; t = e;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; n = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (!!t) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            n += t.offsetTop;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            t = t.offsetParent&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; g() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = document.documentElement;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!!window.innerWidth) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; window.innerHeight&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (e &amp;amp;&amp;amp; !isNaN(e.clientHeight)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; e.clientHeight&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; y() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (window.pageYOffset) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; window.pageYOffset&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; Math.max(document.documentElement.scrollTop, document.body.scrollTop)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; E(e) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; t = m(e);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; t &amp;gt;= w &amp;amp;&amp;amp; t &amp;lt;= b + w&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; S() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = document.createElement(&lt;span class=&quot;string&quot;&gt;&quot;audio&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.setAttribute(&lt;span class=&quot;string&quot;&gt;&quot;class&quot;&lt;/span&gt;, l);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.src = i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.loop = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.addEventListener(&lt;span class=&quot;string&quot;&gt;&quot;canplay&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            setTimeout(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                x(k)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;, &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            setTimeout(&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                N();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                p();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; e &amp;lt; O.length; e++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    T(O[e])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;, &lt;span class=&quot;number&quot;&gt;15500&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;, &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.addEventListener(&lt;span class=&quot;string&quot;&gt;&quot;ended&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            N();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            h()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;, &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.innerHTML = &lt;span class=&quot;string&quot;&gt;&quot; &amp;lt;p&amp;gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        document.body.appendChild(e);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.play()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; x(e) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.className += &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt; + s + &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt; + o&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; T(e) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        e.className += &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt; + s + &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt; + u[Math.floor(Math.random() * u.length)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; N() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = document.getElementsByClassName(s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; t = new RegExp(&lt;span class=&quot;string&quot;&gt;&quot;\\b&quot;&lt;/span&gt; + s + &lt;span class=&quot;string&quot;&gt;&quot;\\b&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; n = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; n &amp;lt; e.length; ) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            e[n].className = e[n].className.replace(t, &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; e = &lt;span class=&quot;number&quot;&gt;30&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; t = &lt;span class=&quot;number&quot;&gt;30&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; n = &lt;span class=&quot;number&quot;&gt;350&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; r = &lt;span class=&quot;number&quot;&gt;350&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;string&quot;&gt;&quot;//7xuupy.com1.z0.glb.clouddn.com/tongxingSibel%20-%20Im%20Sorry.mp3&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; s = &lt;span class=&quot;string&quot;&gt;&quot;mw-harlem_shake_me&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; o = &lt;span class=&quot;string&quot;&gt;&quot;im_first&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; u = [&lt;span class=&quot;string&quot;&gt;&quot;im_drunk&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;im_baked&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;im_trippin&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;im_blown&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a = &lt;span class=&quot;string&quot;&gt;&quot;mw-strobe_light&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; f = &lt;span class=&quot;string&quot;&gt;&quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; l = &lt;span class=&quot;string&quot;&gt;&quot;mw_added_css&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; b = g();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; w = y();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; C = document.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&quot;*&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; k = &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; L = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; L &amp;lt; C.length; L++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; A = C[L];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (v(A)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (E(A)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                k = A;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (A === &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        console.warn(&lt;span class=&quot;string&quot;&gt;&quot;Could not find a node of the right size. Please try a different page.&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    c();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    S();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; O = [];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; L = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; L &amp;lt; C.length; L++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; A = C[L];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (v(A)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            O.push(A)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;)()    &#39;&amp;gt;High一下&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;  {% if theme.leancloud_visitors.enable %}
+  {% include &#39;_scripts/lean-analytics.swig&#39; %}
+  {% endif %}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;给页面添加High一下&quot;&gt;&lt;a href=&quot;#给页面添加High一下&quot; class=&quot;headerlink&quot; title=&quot;给页面添加High一下&quot;&gt;&lt;/a&gt;给页面添加High一下&lt;/h3&gt;&lt;p&gt;打开&lt;code&gt;博客根目录\themes\next\layout_partials\header.swig&lt;/code&gt;，在&lt;code&gt;&amp;lt;ul&amp;gt; ... /ul&amp;gt;&lt;/code&gt;标签之间加入以下代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;li&amp;gt; &amp;lt;a title=&amp;quot;把这个链接拖到你的Chrome收藏夹工具栏中&amp;quot; href=&amp;#39;javascript:(function() {
+    function c() {
+        var e = document.createElement(&amp;quot;link&amp;quot;);
+        e.setAttribute(&amp;quot;type&amp;quot;, &amp;quot;text/css&amp;quot;);
+        e.setAttribute(&amp;quot;rel&amp;quot;, &amp;quot;stylesheet&amp;quot;);
+        e.setAttribute(&amp;quot;href&amp;quot;, f);
+        e.setAttribute(&amp;quot;class&amp;quot;, l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t &amp;lt; e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement(&amp;quot;div&amp;quot;);
+        e.setAttribute(&amp;quot;class&amp;quot;, a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height &amp;gt; e &amp;amp;&amp;amp; s.height &amp;lt; n &amp;amp;&amp;amp; s.width &amp;gt; t &amp;amp;&amp;amp; s.width &amp;lt; r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e &amp;amp;&amp;amp; !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t &amp;gt;= w &amp;amp;&amp;amp; t &amp;lt;= b + w
+    }
+
+    function S() {
+        var e = document.createElement(&amp;quot;audio&amp;quot;);
+        e.setAttribute(&amp;quot;class&amp;quot;, l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener(&amp;quot;canplay&amp;quot;, function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e &amp;lt; O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener(&amp;quot;ended&amp;quot;, function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = &amp;quot; &amp;lt;p&amp;gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;&amp;quot;;
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += &amp;quot; &amp;quot; + s + &amp;quot; &amp;quot; + o
+    }
+
+    function T(e) {
+        e.className += &amp;quot; &amp;quot; + s + &amp;quot; &amp;quot; + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp(&amp;quot;\\b&amp;quot; + s + &amp;quot;\\b&amp;quot;);
+        for (var n = 0; n &amp;lt; e.length; ) {
+            e[n].className = e[n].className.replace(t, &amp;quot;&amp;quot;)
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = &amp;quot;//7xuupy.com1.z0.glb.clouddn.com/tongxingSibel%20-%20Im%20Sorry.mp3&amp;quot;;
+    var s = &amp;quot;mw-harlem_shake_me&amp;quot;;
+    var o = &amp;quot;im_first&amp;quot;;
+    var u = [&amp;quot;im_drunk&amp;quot;, &amp;quot;im_baked&amp;quot;, &amp;quot;im_trippin&amp;quot;, &amp;quot;im_blown&amp;quot;];
+    var a = &amp;quot;mw-strobe_light&amp;quot;;
+    var f = &amp;quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&amp;quot;;
+    var l = &amp;quot;mw_added_css&amp;quot;;
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName(&amp;quot;*&amp;quot;);
+    var k = null;
+    for (var L = 0; L &amp;lt; C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn(&amp;quot;Could not find a node of the right size. Please try a different page.&amp;quot;);
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L &amp;lt; C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+    })()    &amp;#39;&amp;gt;High一下&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;//7xuupy.com1.z0.glb.clouddn.com/tongxingSibel%20-%20Im%20Sorry.mp3&amp;quot;&lt;/code&gt;可以替换成任意你想要的音乐地址&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;设置网站的图标Favicon&quot;&gt;&lt;a href=&quot;#设置网站的图标Favicon&quot; class=&quot;headerlink&quot; title=&quot;设置网站的图标Favicon&quot;&gt;&lt;/a&gt;设置网站的图标Favicon&lt;/h3&gt;&lt;p&gt;favicon图标也就是我们打开一个网页，出现在最浅的图标样式，可以自定义，首先我们需要一个favicon.ico的图标，可以去&lt;a href=&quot;http://www.bitbug.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;比特虫&lt;/a&gt;网站制作，网上的做法是将其放在根目录的source文件夹里。然后在主题目录的layout_partials路径下，修改header.swig的meta标签，我实验了一下，并不能配置成功呢，所以代码就不贴了，这里介绍我的做法:&lt;br&gt;图表制作好后，上传到云存储空间，获取图片的网址，然后打开主题配置文件_config.yml，找到favicon字段，将图片网址粘贴在后面，即可。&lt;/p&gt;
-&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;favicon:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;//ww4.sinaimg.cn/square/937882b5jw1f4db4lroy9j20hs0npmy6.jpg #网站图标&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;到此，Next的主题算是简单的美化了一下，你现在可以在本地预览，也可以将其部署到github上去哦。&lt;br&gt;三部曲：&lt;br&gt;终端执行&lt;/p&gt;
-&lt;figure class=&quot;highlight nginx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;hexo&lt;/span&gt; clean &lt;span class=&quot;comment&quot;&gt;#清空缓存&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo g &lt;span class=&quot;comment&quot;&gt;#生成静态网页&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo d &lt;span class=&quot;comment&quot;&gt;#部署到github&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;关于博客的迁移，文章标题的搜索优化等，这里就不说了。网上也有很多大神写过这方面的文章。再次感谢开源大帝。&lt;br&gt;不说了，我也得考虑做迁移了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;favicon: http://ww4.sinaimg.cn/square/937882b5jw1f4db4lroy9j20hs0npmy6.jpg #网站图标
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;到此，Next的主题算是简单的美化了一下，你现在可以在本地预览，也可以将其部署到github上去哦。&lt;br&gt;三部曲：&lt;br&gt;终端执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo clean #清空缓存
+hexo g #生成静态网页
+hexo d #部署到github
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;关于博客的迁移，文章标题的搜索优化等，这里就不说了。网上也有很多大神写过这方面的文章。再次感谢开源大帝。&lt;br&gt;不说了，我也得考虑做迁移了。&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -447,13 +1038,17 @@ Server running at http://127.0.0.1:8124/
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h2 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h2 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ hexo new &amp;quot;My New Post&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ hexo server
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ hexo generate
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$ hexo deploy
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
 </content>
     
