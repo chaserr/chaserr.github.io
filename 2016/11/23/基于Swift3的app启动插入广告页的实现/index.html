@@ -87,35 +87,32 @@
 
 
 
-<meta name="description" content="AppLaunchADExample##缓存逻辑
-
+<meta name="description" content="AppLaunchADExample缓存逻辑
 为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告
 把广告页从服务器加载完成后缓存在本地和内存中
 而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步
-默认先显示系统的LaunchImage,然后执行第二步##UI逻辑
-去掉main.storyBoard和Launch.storybo">
+默认先显示系统的LaunchImage,然后执行第二步UI逻辑
+去掉main.storyBoard和Launch.storyboard，添">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Swift3的app启动插入广告页的实现">
 <meta property="og:url" content="chaserr.github.io/2016/11/23/基于Swift3的app启动插入广告页的实现/index.html">
 <meta property="og:site_name" content="朝夕">
-<meta property="og:description" content="AppLaunchADExample##缓存逻辑
-
+<meta property="og:description" content="AppLaunchADExample缓存逻辑
 为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告
 把广告页从服务器加载完成后缓存在本地和内存中
 而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步
-默认先显示系统的LaunchImage,然后执行第二步##UI逻辑
-去掉main.storyBoard和Launch.storybo">
+默认先显示系统的LaunchImage,然后执行第二步UI逻辑
+去掉main.storyBoard和Launch.storyboard，添">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1128807-480cba5f068469d1.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2016-11-23T02:36:13.000Z">
+<meta property="og:updated_time" content="2016-11-23T02:37:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Swift3的app启动插入广告页的实现">
-<meta name="twitter:description" content="AppLaunchADExample##缓存逻辑
-
+<meta name="twitter:description" content="AppLaunchADExample缓存逻辑
 为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告
 把广告页从服务器加载完成后缓存在本地和内存中
 而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步
-默认先显示系统的LaunchImage,然后执行第二步##UI逻辑
-去掉main.storyBoard和Launch.storybo">
+默认先显示系统的LaunchImage,然后执行第二步UI逻辑
+去掉main.storyBoard和Launch.storyboard，添">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1128807-480cba5f068469d1.gif?imageMogr2/auto-orient/strip">
 
 
@@ -389,16 +386,15 @@
       
 
       
-        <h1 id="AppLaunchADExample"><a href="#AppLaunchADExample" class="headerlink" title="AppLaunchADExample"></a>AppLaunchADExample</h1><p>##缓存逻辑</p>
-<ol>
+        <h1 id="AppLaunchADExample"><a href="#AppLaunchADExample" class="headerlink" title="AppLaunchADExample"></a>AppLaunchADExample</h1><h2 id="缓存逻辑"><a href="#缓存逻辑" class="headerlink" title="缓存逻辑"></a>缓存逻辑</h2><ol>
 <li>为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告</li>
 <li>把广告页从服务器加载完成后缓存在本地和内存中</li>
 <li>而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步</li>
-<li>默认先显示系统的LaunchImage,然后执行第二步<br>##UI逻辑</li>
+<li>默认先显示系统的LaunchImage,然后执行第二步<h2 id="UI逻辑"><a href="#UI逻辑" class="headerlink" title="UI逻辑"></a>UI逻辑</h2></li>
 <li>去掉main.storyBoard和Launch.storyboard，添加自定义的LaunchImage</li>
 <li>将window可见，然后在window上覆盖一层imageView,用来展示广告页</li>
 <li>如果需要跳转，点击广告页，使用根导航控制器push广告加载页<a id="more"></a>
-##使用的第三方</li>
+<h2 id="使用的第三方"><a href="#使用的第三方" class="headerlink" title="使用的第三方"></a>使用的第三方</h2></li>
 </ol>
 <ul>
 <li>使用cocoaPod导入王巍（喵神）的作品<code>Kingfisher</code></li>
@@ -415,7 +411,7 @@
 </li>
 </ol>
 <p><img src="http://upload-images.jianshu.io/upload_images/1128807-480cba5f068469d1.gif?imageMogr2/auto-orient/strip" alt="LaunchAdsImage"></p>
-<p>###写在最后<br>如有建议请多多指教<br><a href="https://github.com/chaserr/AppLaunchADExample" target="_blank" rel="external">项目地址https://github.com/chaserr/AppLaunchADExample</a><br>喜欢的话给个start吧</p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>如有建议请多多指教<br><a href="https://github.com/chaserr/AppLaunchADExample" target="_blank" rel="external">项目地址https://github.com/chaserr/AppLaunchADExample</a><br>喜欢的话给个start吧</p>
 
       
     </div>
@@ -664,7 +660,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AppLaunchADExample"><span class="nav-number">1.</span> <span class="nav-text">AppLaunchADExample</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AppLaunchADExample"><span class="nav-number">1.</span> <span class="nav-text">AppLaunchADExample</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存逻辑"><span class="nav-number">1.1.</span> <span class="nav-text">缓存逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI逻辑"><span class="nav-number">1.2.</span> <span class="nav-text">UI逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用的第三方"><span class="nav-number">1.3.</span> <span class="nav-text">使用的第三方</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">1.3.1.</span> <span class="nav-text">写在最后</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

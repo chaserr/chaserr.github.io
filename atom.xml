@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="chaserr.github.io/"/>
-  <updated>2016-11-23T02:36:13.000Z</updated>
+  <updated>2016-11-23T02:37:44.000Z</updated>
   <id>chaserr.github.io/</id>
   
   <author>
@@ -20,18 +20,17 @@
     <link href="chaserr.github.io/2016/11/23/%E5%9F%BA%E4%BA%8ESwift3%E7%9A%84app%E5%90%AF%E5%8A%A8%E6%8F%92%E5%85%A5%E5%B9%BF%E5%91%8A%E9%A1%B5%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
     <id>chaserr.github.io/2016/11/23/基于Swift3的app启动插入广告页的实现/</id>
     <published>2016-11-23T01:35:20.000Z</published>
-    <updated>2016-11-23T02:36:13.000Z</updated>
+    <updated>2016-11-23T02:37:44.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;AppLaunchADExample&quot;&gt;&lt;a href=&quot;#AppLaunchADExample&quot; class=&quot;headerlink&quot; title=&quot;AppLaunchADExample&quot;&gt;&lt;/a&gt;AppLaunchADExample&lt;/h1&gt;&lt;p&gt;##缓存逻辑&lt;/p&gt;
-&lt;ol&gt;
+    <content type="html">&lt;h1 id=&quot;AppLaunchADExample&quot;&gt;&lt;a href=&quot;#AppLaunchADExample&quot; class=&quot;headerlink&quot; title=&quot;AppLaunchADExample&quot;&gt;&lt;/a&gt;AppLaunchADExample&lt;/h1&gt;&lt;h2 id=&quot;缓存逻辑&quot;&gt;&lt;a href=&quot;#缓存逻辑&quot; class=&quot;headerlink&quot; title=&quot;缓存逻辑&quot;&gt;&lt;/a&gt;缓存逻辑&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告&lt;/li&gt;
 &lt;li&gt;把广告页从服务器加载完成后缓存在本地和内存中&lt;/li&gt;
 &lt;li&gt;而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步&lt;/li&gt;
-&lt;li&gt;默认先显示系统的LaunchImage,然后执行第二步&lt;br&gt;##UI逻辑&lt;/li&gt;
+&lt;li&gt;默认先显示系统的LaunchImage,然后执行第二步&lt;h2 id=&quot;UI逻辑&quot;&gt;&lt;a href=&quot;#UI逻辑&quot; class=&quot;headerlink&quot; title=&quot;UI逻辑&quot;&gt;&lt;/a&gt;UI逻辑&lt;/h2&gt;&lt;/li&gt;
 &lt;li&gt;去掉main.storyBoard和Launch.storyboard，添加自定义的LaunchImage&lt;/li&gt;
 &lt;li&gt;将window可见，然后在window上覆盖一层imageView,用来展示广告页&lt;/li&gt;
 &lt;li&gt;如果需要跳转，点击广告页，使用根导航控制器push广告加载页&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-##使用的第三方&lt;/li&gt;
+&lt;h2 id=&quot;使用的第三方&quot;&gt;&lt;a href=&quot;#使用的第三方&quot; class=&quot;headerlink&quot; title=&quot;使用的第三方&quot;&gt;&lt;/a&gt;使用的第三方&lt;/h2&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;使用cocoaPod导入王巍（喵神）的作品&lt;code&gt;Kingfisher&lt;/code&gt;&lt;/li&gt;
@@ -48,17 +47,16 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-480cba5f068469d1.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;LaunchAdsImage&quot;&gt;&lt;/p&gt;
-&lt;p&gt;###写在最后&lt;br&gt;如有建议请多多指教&lt;br&gt;&lt;a href=&quot;https://github.com/chaserr/AppLaunchADExample&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;项目地址https://github.com/chaserr/AppLaunchADExample&lt;/a&gt;&lt;br&gt;喜欢的话给个start吧&lt;/p&gt;
+&lt;h3 id=&quot;写在最后&quot;&gt;&lt;a href=&quot;#写在最后&quot; class=&quot;headerlink&quot; title=&quot;写在最后&quot;&gt;&lt;/a&gt;写在最后&lt;/h3&gt;&lt;p&gt;如有建议请多多指教&lt;br&gt;&lt;a href=&quot;https://github.com/chaserr/AppLaunchADExample&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;项目地址https://github.com/chaserr/AppLaunchADExample&lt;/a&gt;&lt;br&gt;喜欢的话给个start吧&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;AppLaunchADExample&quot;&gt;&lt;a href=&quot;#AppLaunchADExample&quot; class=&quot;headerlink&quot; title=&quot;AppLaunchADExample&quot;&gt;&lt;/a&gt;AppLaunchADExample&lt;/h1&gt;&lt;p&gt;##缓存逻辑&lt;/p&gt;
-&lt;ol&gt;
+      &lt;h1 id=&quot;AppLaunchADExample&quot;&gt;&lt;a href=&quot;#AppLaunchADExample&quot; class=&quot;headerlink&quot; title=&quot;AppLaunchADExample&quot;&gt;&lt;/a&gt;AppLaunchADExample&lt;/h1&gt;&lt;h2 id=&quot;缓存逻辑&quot;&gt;&lt;a href=&quot;#缓存逻辑&quot; class=&quot;headerlink&quot; title=&quot;缓存逻辑&quot;&gt;&lt;/a&gt;缓存逻辑&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告&lt;/li&gt;
 &lt;li&gt;把广告页从服务器加载完成后缓存在本地和内存中&lt;/li&gt;
 &lt;li&gt;而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步&lt;/li&gt;
-&lt;li&gt;默认先显示系统的LaunchImage,然后执行第二步&lt;br&gt;##UI逻辑&lt;/li&gt;
+&lt;li&gt;默认先显示系统的LaunchImage,然后执行第二步&lt;h2 id=&quot;UI逻辑&quot;&gt;&lt;a href=&quot;#UI逻辑&quot; class=&quot;headerlink&quot; title=&quot;UI逻辑&quot;&gt;&lt;/a&gt;UI逻辑&lt;/h2&gt;&lt;/li&gt;
 &lt;li&gt;去掉main.storyBoard和Launch.storyboard，添加自定义的LaunchImage&lt;/li&gt;
 &lt;li&gt;将window可见，然后在window上覆盖一层imageView,用来展示广告页&lt;/li&gt;
 &lt;li&gt;如果需要跳转，点击广告页，使用根导航控制器push广告加载页

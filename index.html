@@ -374,12 +374,11 @@
 
       
         
-          <h1 id="AppLaunchADExample"><a href="#AppLaunchADExample" class="headerlink" title="AppLaunchADExample"></a>AppLaunchADExample</h1><p>##缓存逻辑</p>
-<ol>
+          <h1 id="AppLaunchADExample"><a href="#AppLaunchADExample" class="headerlink" title="AppLaunchADExample"></a>AppLaunchADExample</h1><h2 id="缓存逻辑"><a href="#缓存逻辑" class="headerlink" title="缓存逻辑"></a>缓存逻辑</h2><ol>
 <li>为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告</li>
 <li>把广告页从服务器加载完成后缓存在本地和内存中</li>
 <li>而后每次  启动图片的时候去本地或者缓存中查找， 如果找到了那么直接显示图片， 如果没找到执行第三步</li>
-<li>默认先显示系统的LaunchImage,然后执行第二步<br>##UI逻辑</li>
+<li>默认先显示系统的LaunchImage,然后执行第二步<h2 id="UI逻辑"><a href="#UI逻辑" class="headerlink" title="UI逻辑"></a>UI逻辑</h2></li>
 <li>去掉main.storyBoard和Launch.storyboard，添加自定义的LaunchImage</li>
 <li>将window可见，然后在window上覆盖一层imageView,用来展示广告页</li>
 <li>如果需要跳转，点击广告页，使用根导航控制器push广告加载页
