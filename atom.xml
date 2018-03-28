@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>朝夕</title>
   <subtitle>朝闻道，夕死可矣。</subtitle>
-  <link href="/htdocs/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="www.chaser.site/"/>
+  <link href="chaserr.github.io/"/>
   <updated>2016-11-23T02:40:21.000Z</updated>
-  <id>www.chaser.site/</id>
+  <id>chaserr.github.io/</id>
   
   <author>
     <name>童星</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>基于Swift3的app启动插入广告页的实现</title>
-    <link href="www.chaser.site/2016/11/23/%E5%9F%BA%E4%BA%8ESwift3%E7%9A%84app%E5%90%AF%E5%8A%A8%E6%8F%92%E5%85%A5%E5%B9%BF%E5%91%8A%E9%A1%B5%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>www.chaser.site/2016/11/23/基于Swift3的app启动插入广告页的实现/</id>
+    <link href="chaserr.github.io/2016/11/23/%E5%9F%BA%E4%BA%8ESwift3%E7%9A%84app%E5%90%AF%E5%8A%A8%E6%8F%92%E5%85%A5%E5%B9%BF%E5%91%8A%E9%A1%B5%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>chaserr.github.io/2016/11/23/基于Swift3的app启动插入广告页的实现/</id>
     <published>2016-11-23T01:35:20.000Z</published>
     <updated>2016-11-23T02:40:21.000Z</updated>
     
@@ -65,16 +65,16 @@
     </summary>
     
     
-      <category term="swift" scheme="www.chaser.site/tags/swift/"/>
+      <category term="swift" scheme="chaserr.github.io/tags/swift/"/>
     
-      <category term="启动广告" scheme="www.chaser.site/tags/%E5%90%AF%E5%8A%A8%E5%B9%BF%E5%91%8A/"/>
+      <category term="启动广告" scheme="chaserr.github.io/tags/%E5%90%AF%E5%8A%A8%E5%B9%BF%E5%91%8A/"/>
     
   </entry>
   
   <entry>
     <title>点击cell动态改变cell高度</title>
-    <link href="www.chaser.site/2016/06/16/%E7%82%B9%E5%87%BBcell%E5%8A%A8%E6%80%81%E6%94%B9%E5%8F%98cell%E9%AB%98%E5%BA%A6/"/>
-    <id>www.chaser.site/2016/06/16/点击cell动态改变cell高度/</id>
+    <link href="chaserr.github.io/2016/06/16/%E7%82%B9%E5%87%BBcell%E5%8A%A8%E6%80%81%E6%94%B9%E5%8F%98cell%E9%AB%98%E5%BA%A6/"/>
+    <id>chaserr.github.io/2016/06/16/点击cell动态改变cell高度/</id>
     <published>2016-06-16T11:43:36.000Z</published>
     <updated>2016-06-16T11:45:06.000Z</updated>
     
@@ -106,21 +106,21 @@
     
     </summary>
     
-      <category term="iOS知识小结" scheme="www.chaser.site/categories/iOS%E7%9F%A5%E8%AF%86%E5%B0%8F%E7%BB%93/"/>
+      <category term="iOS知识小结" scheme="chaserr.github.io/categories/iOS%E7%9F%A5%E8%AF%86%E5%B0%8F%E7%BB%93/"/>
     
     
-      <category term="TableViewCell" scheme="www.chaser.site/tags/TableViewCell/"/>
+      <category term="TableViewCell" scheme="chaserr.github.io/tags/TableViewCell/"/>
     
-      <category term="动态改变高度" scheme="www.chaser.site/tags/%E5%8A%A8%E6%80%81%E6%94%B9%E5%8F%98%E9%AB%98%E5%BA%A6/"/>
+      <category term="动态改变高度" scheme="chaserr.github.io/tags/%E5%8A%A8%E6%80%81%E6%94%B9%E5%8F%98%E9%AB%98%E5%BA%A6/"/>
     
-      <category term="cell伸缩" scheme="www.chaser.site/tags/cell%E4%BC%B8%E7%BC%A9/"/>
+      <category term="cell伸缩" scheme="chaserr.github.io/tags/cell%E4%BC%B8%E7%BC%A9/"/>
     
   </entry>
   
   <entry>
     <title>textView使用小结</title>
-    <link href="www.chaser.site/2016/06/15/%E6%A0%87%E7%AD%BE%EF%BC%9AtextView%EF%BC%8C%E5%85%89%E6%A0%87%E5%81%8F%E7%A7%BB/"/>
-    <id>www.chaser.site/2016/06/15/标签：textView，光标偏移/</id>
+    <link href="chaserr.github.io/2016/06/15/%E6%A0%87%E7%AD%BE%EF%BC%9AtextView%EF%BC%8C%E5%85%89%E6%A0%87%E5%81%8F%E7%A7%BB/"/>
+    <id>chaserr.github.io/2016/06/15/标签：textView，光标偏移/</id>
     <published>2016-06-15T04:08:29.000Z</published>
     <updated>2016-06-15T10:37:47.000Z</updated>
     
@@ -143,19 +143,19 @@
     
     </summary>
     
-      <category term="iOS知识小结" scheme="www.chaser.site/categories/iOS%E7%9F%A5%E8%AF%86%E5%B0%8F%E7%BB%93/"/>
+      <category term="iOS知识小结" scheme="chaserr.github.io/categories/iOS%E7%9F%A5%E8%AF%86%E5%B0%8F%E7%BB%93/"/>
     
     
-      <category term="textView" scheme="www.chaser.site/tags/textView/"/>
+      <category term="textView" scheme="chaserr.github.io/tags/textView/"/>
     
-      <category term="光标偏移量" scheme="www.chaser.site/tags/%E5%85%89%E6%A0%87%E5%81%8F%E7%A7%BB%E9%87%8F/"/>
+      <category term="光标偏移量" scheme="chaserr.github.io/tags/%E5%85%89%E6%A0%87%E5%81%8F%E7%A7%BB%E9%87%8F/"/>
     
   </entry>
   
   <entry>
     <title>Xcode插件使用记录</title>
-    <link href="www.chaser.site/2016/06/14/%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E8%AE%B0%E5%BD%95/"/>
-    <id>www.chaser.site/2016/06/14/使用插件记录/</id>
+    <link href="chaserr.github.io/2016/06/14/%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E8%AE%B0%E5%BD%95/"/>
+    <id>chaserr.github.io/2016/06/14/使用插件记录/</id>
     <published>2016-06-14T04:08:29.000Z</published>
     <updated>2016-06-14T09:17:29.000Z</updated>
     
@@ -193,23 +193,23 @@
     
     </summary>
     
-      <category term="xCode插件" scheme="www.chaser.site/categories/xCode%E6%8F%92%E4%BB%B6/"/>
+      <category term="xCode插件" scheme="chaserr.github.io/categories/xCode%E6%8F%92%E4%BB%B6/"/>
     
     
-      <category term="Xcode" scheme="www.chaser.site/tags/Xcode/"/>
+      <category term="Xcode" scheme="chaserr.github.io/tags/Xcode/"/>
     
-      <category term="Alcatraz" scheme="www.chaser.site/tags/Alcatraz/"/>
+      <category term="Alcatraz" scheme="chaserr.github.io/tags/Alcatraz/"/>
     
   </entry>
   
   <entry>
     <title>最简便的方法搭建Hexo+Github博客,基于Next主题</title>
-    <link href="www.chaser.site/2016/06/01/%E6%9C%80%E7%AE%80%E4%BE%BF%E7%9A%84%E6%96%B9%E6%B3%95%E6%90%AD%E5%BB%BAHexo-Github%E5%8D%9A%E5%AE%A2-%E5%9F%BA%E4%BA%8ENext%E4%B8%BB%E9%A2%98/"/>
-    <id>www.chaser.site/2016/06/01/最简便的方法搭建Hexo-Github博客-基于Next主题/</id>
+    <link href="chaserr.github.io/2016/06/01/%E6%9C%80%E7%AE%80%E4%BE%BF%E7%9A%84%E6%96%B9%E6%B3%95%E6%90%AD%E5%BB%BAHexo-Github%E5%8D%9A%E5%AE%A2-%E5%9F%BA%E4%BA%8ENext%E4%B8%BB%E9%A2%98/"/>
+    <id>chaserr.github.io/2016/06/01/最简便的方法搭建Hexo-Github博客-基于Next主题/</id>
     <published>2016-06-01T04:08:29.000Z</published>
     <updated>2016-06-14T09:11:17.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Hexo，反正我第一眼看到就喜欢上了它的简约，&lt;a href=&quot;http://chaserr.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;感受一下吧&lt;/a&gt;。&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Hexo，反正我第一眼看到就喜欢上了它的简约，&lt;a href=&quot;http://chaserr.github.io/&quot;&gt;感受一下吧&lt;/a&gt;。&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.搭建you_site服务器环境&lt;/strong&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;&lt;strong&gt;2.部署到github上&lt;/strong&gt;&lt;/p&gt;
@@ -310,7 +310,7 @@ Server running at http://127.0.0.1:8124/
 &lt;p&gt;Hexo部署常见问题解决方案 – &lt;a href=&quot;http://wp.huangshiyang.com/hexo%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;传送门&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;至此，Hexo的部署算是完成了。接下来就是优化你的主题了。&lt;br&gt;我使用的是Next主题，如果喜欢其他主题的童鞋，可以跳走了。&lt;/p&gt;
-&lt;h2 id=&quot;优化主题&quot;&gt;&lt;a href=&quot;#优化主题&quot; class=&quot;headerlink&quot; title=&quot;优化主题&quot;&gt;&lt;/a&gt;优化主题&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://chaserr.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;样式预览&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;优化主题&quot;&gt;&lt;a href=&quot;#优化主题&quot; class=&quot;headerlink&quot; title=&quot;优化主题&quot;&gt;&lt;/a&gt;优化主题&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://chaserr.github.io/&quot;&gt;样式预览&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Next主题的安装使用&quot;&gt;&lt;a href=&quot;#Next主题的安装使用&quot; class=&quot;headerlink&quot; title=&quot;Next主题的安装使用&quot;&gt;&lt;/a&gt;Next主题的安装使用&lt;/h3&gt;&lt;p&gt;首先从github上clone到本地，在终端cd / 切换到你通过Hexo init生成的根目录，&lt;br&gt;然后在终端输入命令：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git clone https://github.com/iissnan/hexo-theme-next themes/next
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;进入站点的全局配置文件：_config.yml&lt;br&gt;找到theme字段：设置为&lt;/p&gt;
@@ -467,21 +467,21 @@ Server running at http://127.0.0.1:8124/
     
     </summary>
     
-      <category term="Hexo博客教程" scheme="www.chaser.site/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
+      <category term="Hexo博客教程" scheme="chaserr.github.io/categories/Hexo%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Hexo" scheme="www.chaser.site/tags/Hexo/"/>
+      <category term="Hexo" scheme="chaserr.github.io/tags/Hexo/"/>
     
-      <category term="Next" scheme="www.chaser.site/tags/Next/"/>
+      <category term="Next" scheme="chaserr.github.io/tags/Next/"/>
     
-      <category term="github" scheme="www.chaser.site/tags/github/"/>
+      <category term="github" scheme="chaserr.github.io/tags/github/"/>
     
   </entry>
   
   <entry>
     <title>Hello Hexo</title>
-    <link href="www.chaser.site/2016/05/31/Hello-Hexo/"/>
-    <id>www.chaser.site/2016/05/31/Hello-Hexo/</id>
+    <link href="chaserr.github.io/2016/05/31/Hello-Hexo/"/>
+    <id>chaserr.github.io/2016/05/31/Hello-Hexo/</id>
     <published>2016-05-31T09:49:22.000Z</published>
     <updated>2016-05-31T09:49:22.000Z</updated>
     
@@ -496,8 +496,8 @@ Server running at http://127.0.0.1:8124/
   
   <entry>
     <title>Hello World</title>
-    <link href="www.chaser.site/2016/05/31/hello-world/"/>
-    <id>www.chaser.site/2016/05/31/hello-world/</id>
+    <link href="chaserr.github.io/2016/05/31/hello-world/"/>
+    <id>chaserr.github.io/2016/05/31/hello-world/</id>
     <published>2016-05-31T09:23:33.000Z</published>
     <updated>2016-06-02T16:55:28.000Z</updated>
     
