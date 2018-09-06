@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>chaserr.github.io/404.html</loc>
+    
+    <lastmod>2018-08-04T15:09:26.193Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>chaserr.github.io/about1.html</loc>
     
     <lastmod>2018-03-28T03:48:53.330Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>chaserr.github.io/2016/05/31/hello-world/</loc>
     
     <lastmod>2016-06-02T16:55:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>chaserr.github.io/404.html</loc>
-    
-    <lastmod>2016-06-01T07:18:22.000Z</lastmod>
     
   </url>
   
