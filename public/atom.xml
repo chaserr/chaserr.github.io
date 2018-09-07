@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="chaserr.github.io/"/>
-  <updated>2016-11-23T02:40:21.000Z</updated>
+  <updated>2018-09-07T07:12:57.993Z</updated>
   <id>chaserr.github.io/</id>
   
   <author>
@@ -16,11 +16,180 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>利用-AWS-的-EC2来搭建属于自己的-VPN-服务器（MAC平台）</title>
+    <link href="chaserr.github.io/2017/10/11/%E5%88%A9%E7%94%A8-AWS-%E7%9A%84-EC2%E6%9D%A5%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88MAC%E5%B9%B3%E5%8F%B0%EF%BC%89/"/>
+    <id>chaserr.github.io/2017/10/11/利用-AWS-的-EC2来搭建属于自己的-VPN-服务器（MAC平台）/</id>
+    <published>2017-10-11T11:43:36.000Z</published>
+    <updated>2018-09-07T07:12:57.993Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;br&gt;其实网上有不少的教程了，但是我觉得没几篇是真的自己一步一步来的，即使有可能自己摸索出来了，遇到的坑也没说出来，其实还是有很多坑，我是一个追求完美的人。因为最近在利用 AWS 的 EC2来部署自己的 node项目，所以顺手搭建了一个 vpn。&lt;br&gt;这里假定你已经拥有了 AWS 的账户，没有的先去申请一个，AWS 的服务首年免费，次年如果不想付费可以继续申请一个新的账号&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意在申请新的账号的时候不要勾选额外的服务，否则你会被无端扣费，我之前就被扣了几百美元，不过国外平台就是服务不错，如果你真没有使用过这些服务，可以申诉回来的，找亚马逊客服，我的五百大洋就找回来了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;亚马逊的网站也支持中文简体，英文不好的童靴可以选择中文简体，页面左下方。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-719c735d069172d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_1.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：EC2实例就相当于一个轻小型的服务器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;选择区域&quot;&gt;&lt;a href=&quot;#选择区域&quot; class=&quot;headerlink&quot; title=&quot;选择区域&quot;&gt;&lt;/a&gt;选择区域&lt;/h2&gt;&lt;p&gt;登录到 AWS 首页后，进入 AWS 服务，先选择右上角的地区，这里选择的&lt;br&gt;地区说简单点就是你搭建的这个服务器所在的区域，我们选择亚太区域东京，可以检测各个区域的网络节点延迟，东京延迟是最低的&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-1de846716eacb2ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_4.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;建立-EC2实例&quot;&gt;&lt;a href=&quot;#建立-EC2实例&quot; class=&quot;headerlink&quot; title=&quot;建立 EC2实例&quot;&gt;&lt;/a&gt;建立 EC2实例&lt;/h2&gt;&lt;h3 id=&quot;选中所有服务-gt-计算-gt-EC2&quot;&gt;&lt;a href=&quot;#选中所有服务-gt-计算-gt-EC2&quot; class=&quot;headerlink&quot; title=&quot;选中所有服务-&amp;gt;计算-&amp;gt;EC2&quot;&gt;&lt;/a&gt;选中所有服务-&amp;gt;计算-&amp;gt;EC2&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-d059a8c267c9269c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_2.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;启动实例&quot;&gt;&lt;a href=&quot;#启动实例&quot; class=&quot;headerlink&quot; title=&quot;启动实例&quot;&gt;&lt;/a&gt;启动实例&lt;/h3&gt;&lt;p&gt;点击启动实例&lt;br&gt;这里不需要管其他东西&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-7074e89876a22cb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_5.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个截图中可以看到我的账户有两个正在运行的实例，分别绑定了两个 ip 地址，安全组以及秘钥对。后面会介绍&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;选择虚拟机&quot;&gt;&lt;a href=&quot;#选择虚拟机&quot; class=&quot;headerlink&quot; title=&quot;选择虚拟机&quot;&gt;&lt;/a&gt;选择虚拟机&lt;/h3&gt;&lt;p&gt;选择虚拟机，也就是要装在你的服务器的操作系统&lt;br&gt;勾选仅免费套餐，选中 Ubuntu Server, 点击选择进入下一步&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-78eee5e7c2e06163.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_6.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;选择实例类型&quot;&gt;&lt;a href=&quot;#选择实例类型&quot; class=&quot;headerlink&quot; title=&quot;选择实例类型&quot;&gt;&lt;/a&gt;选择实例类型&lt;/h3&gt;&lt;p&gt;这里是默认的，因为只有这个是免费的，所以不需要改动，直接点击审核和启动&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-4d345b1b4fd5dd0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_7.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;核查实例启动&quot;&gt;&lt;a href=&quot;#核查实例启动&quot; class=&quot;headerlink&quot; title=&quot;核查实例启动&quot;&gt;&lt;/a&gt;核查实例启动&lt;/h3&gt;&lt;p&gt;然后就到了最后一步，中间的几部不需要管，有兴趣可以点进去看看，但是不需要做任何更改。点击启动&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-476709e164045474.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_8.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;创建秘钥&quot;&gt;&lt;a href=&quot;#创建秘钥&quot; class=&quot;headerlink&quot; title=&quot;创建秘钥&quot;&gt;&lt;/a&gt;创建秘钥&lt;/h3&gt;&lt;p&gt;这里需要创建一对秘钥，秘钥是用来远程登录服务器的，也就是接下来会在你自己的电脑上登录 AWS 的 EC2服务器，并在里面配置项目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;点击创建新秘钥对&lt;/li&gt;
+&lt;li&gt;填写秘钥名称，可以填 TXVPN&lt;/li&gt;
+&lt;li&gt;下载秘钥对&lt;blockquote&gt;
+&lt;p&gt;只有下载了秘钥对才能启动实例，一定要保存好这个秘钥对，很重要&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;启动实例&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-8270ecab9c1b6394.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_11.png&quot;&gt;&lt;br&gt;接下来就可以看到实例已经启动了，这时候可以为实例设置一个名字方便好记&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-c8cf7edb63b822fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_13.png&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;创建安全组&quot;&gt;&lt;a href=&quot;#创建安全组&quot; class=&quot;headerlink&quot; title=&quot;创建安全组&quot;&gt;&lt;/a&gt;创建安全组&lt;/h3&gt;&lt;p&gt;这个安全组可以指定访问的 ip，端口等等。&lt;br&gt;点击网络与安全-&amp;gt;安全组&lt;br&gt;会看到组名，刚才创建的实例默认是会创建一个安全组的，可以在实例界面拖到最后面查看默认生成的安全组名，然后在这个界面选中与刚才创建的实例相关联的安全组&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;点击入站&lt;/li&gt;
+&lt;li&gt;编辑&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-9bdb9a57adc08c53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_16.png&quot;&gt;&lt;h3 id=&quot;编辑入站规则&quot;&gt;&lt;a href=&quot;#编辑入站规则&quot; class=&quot;headerlink&quot; title=&quot;编辑入站规则&quot;&gt;&lt;/a&gt;编辑入站规则&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;添加规则&lt;blockquote&gt;
+&lt;p&gt;选择自定义 TCP 规则，在端口范围中填写1723，任何位置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;保存&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-fb1e1da46ad64a1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_17.png&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;添加弹性-IP&quot;&gt;&lt;a href=&quot;#添加弹性-IP&quot; class=&quot;headerlink&quot; title=&quot;添加弹性 IP&quot;&gt;&lt;/a&gt;添加弹性 IP&lt;/h3&gt;&lt;p&gt;点击网络与安全-&amp;gt;弹性 ip-&amp;gt;分配新地址&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-3d96360c12209b8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_20.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;关联弹性-ip&quot;&gt;&lt;a href=&quot;#关联弹性-ip&quot; class=&quot;headerlink&quot; title=&quot;关联弹性 ip&quot;&gt;&lt;/a&gt;关联弹性 ip&lt;/h3&gt;&lt;p&gt;分配完之后 会回到分配新地址界面，这个时候选中已经分配的 ip&lt;br&gt;点击操作-&amp;gt; 关联地址&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-5ead292e480b6aec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_21.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不添加了弹性ip，你的实例每次重新启动就会改变ip。&lt;br&gt;不能分配与实例没有关联的，否则会额外收费的哦（还是按小时收费，因为我已经走过了这条路，所以千万记得，如果要停止实例也一定要释放掉与它想关联的弹性 ip）！&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-37769c5e3bde1641.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_45.png&quot;&gt;&lt;br&gt;这就是我一不小心没释放掉 ip 需要支付0.04美元，当然关联的请放心，不会收费的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;选择实例&lt;blockquote&gt;
+&lt;p&gt;这里会列出所有你创建的实例，所以前面的实例别名很重要，选中别名 TXVPN&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;重新关联&lt;/li&gt;
+&lt;li&gt;关联&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-143f0f04ae095793.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_22.png&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;远程登录服务器，远程连接&quot;&gt;&lt;a href=&quot;#远程登录服务器，远程连接&quot; class=&quot;headerlink&quot; title=&quot;远程登录服务器，远程连接&quot;&gt;&lt;/a&gt;远程登录服务器，远程连接&lt;/h2&gt;&lt;p&gt;点击实例-&amp;gt;选择创建的 TXVPN 实例-&amp;gt;连接&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-2418d8058102d93f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_25.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;打开-mac-的终端或者-iTerm&quot;&gt;&lt;a href=&quot;#打开-mac-的终端或者-iTerm&quot; class=&quot;headerlink&quot; title=&quot;打开 mac 的终端或者 iTerm&quot;&gt;&lt;/a&gt;打开 mac 的终端或者 iTerm&lt;/h3&gt;&lt;p&gt;cd 到你之前下载秘钥的路径&lt;br&gt;复制点击关联弹出来的弹框上面的两个命令行，如果是一步一步下来的，不需要做任何更改。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-bf0f2d00746aeb47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_27.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;第一次连接会出现一个提示，带有（yes/no）字样的，这里输入yes回车即可&lt;/p&gt;
+&lt;p&gt;如果出现&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Welcome to Ubuntu &lt;span class=&quot;number&quot;&gt;16.04&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; LTS (GNU/Linux &lt;span class=&quot;number&quot;&gt;4.4&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;1041&lt;/span&gt;-aws x86_64)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;说明已经等了到远程服务器了，只是这个服务器上什么也没有&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-0daf208242fdbbf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_41.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;搭建-VPN-服务器&quot;&gt;&lt;a href=&quot;#搭建-VPN-服务器&quot; class=&quot;headerlink&quot; title=&quot;搭建 VPN 服务器&quot;&gt;&lt;/a&gt;搭建 VPN 服务器&lt;/h2&gt;&lt;p&gt;这里的步骤也是参考网络的文章，但是会备注几点坑&lt;br&gt;vim 的操作命令也要熟悉一点，至少知道增删改查&lt;/p&gt;
+&lt;h3 id=&quot;配置-pptp&quot;&gt;&lt;a href=&quot;#配置-pptp&quot; class=&quot;headerlink&quot; title=&quot;配置 pptp&quot;&gt;&lt;/a&gt;配置 pptp&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在刚才登录的终端输入&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install pptpd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;出现确认后输入 y回车&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;配置 pptp&lt;br&gt;在终端输入&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vi /etc/pptpd.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;找到文件最后面，去掉下面两行的注释符号#，没有的在最后面加上这两行&lt;br&gt;localip 192.168.0.1&lt;br&gt;remoteip 192.168.0.234-238,192.168.0.245&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;按键盘上的ESC键，左下角的– INSERT —字样消失&lt;/li&gt;
+&lt;li&gt;SHIFT键的同时按一下;键，光标跳转到左下角的:号后面，输入 wq 回车&lt;h3 id=&quot;添加-DNS-解析&quot;&gt;&lt;a href=&quot;#添加-DNS-解析&quot; class=&quot;headerlink&quot; title=&quot;添加 DNS 解析&quot;&gt;&lt;/a&gt;添加 DNS 解析&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;在终端输入&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vi /etc/ppp/pptpd-options&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;找到带有ms-dns的两行，并修改 dns 为下面谷歌开放的，没有的可以在最后面加上下面两行&lt;br&gt;ms-dns 8.8.4.4&lt;br&gt;ms-dns 8.8.8.8&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;保存并退出 vim（命令操作同上4-5）步&lt;h3 id=&quot;添加-VPN-用户&quot;&gt;&lt;a href=&quot;#添加-VPN-用户&quot; class=&quot;headerlink&quot; title=&quot;添加 VPN 用户&quot;&gt;&lt;/a&gt;添加 VPN 用户&lt;/h3&gt;在终端输入&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/ppp/chap-secrets&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;！！一定要注意这里的格式 与字段要一一对应&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;client&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;server&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;secret&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;IP addresses&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;TXVPN&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;pptpd&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;*&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;其中，用户名(client)和密码(secret)可自行设置，服务名必须是pptpd，IP表明允许登录的ip列表，如果允许所有ip可以设置为*。&lt;br&gt;如果需要给朋友也加以账号，可以在这里填写，注意的是 AWS 免费的每个月都有流量限制的，慎用哦&lt;/p&gt;
+&lt;h3 id=&quot;开启IPv4转发&quot;&gt;&lt;a href=&quot;#开启IPv4转发&quot; class=&quot;headerlink&quot; title=&quot;开启IPv4转发&quot;&gt;&lt;/a&gt;开启IPv4转发&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在终端输入&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/sysctl.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;找到&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#net.ipv4.ip_forward = 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;并将注释符号#去掉&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;退出 vim 编辑器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;创建NAT规则&quot;&gt;&lt;a href=&quot;#创建NAT规则&quot; class=&quot;headerlink&quot; title=&quot;创建NAT规则&quot;&gt;&lt;/a&gt;创建NAT规则&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在终端输入&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/rc.local&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在 exit 0 这一行的上面添加一行&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;iptables -t nat -A POSTROUTING -o eth&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; -j MASQUERADE &lt;span class=&quot;comment&quot;&gt;# 将所有目标IP包转向eth0接口&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;退出 vim 编辑器&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;pptpd默认监听1723端口，所以需要开启相关端口&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo iptables -I INPUT -p tcp --dport &lt;span class=&quot;number&quot;&gt;1723&lt;/span&gt; -j ACCEPT&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是–dport哦&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;更新配置&quot;&gt;&lt;a href=&quot;#更新配置&quot; class=&quot;headerlink&quot; title=&quot;更新配置&quot;&gt;&lt;/a&gt;更新配置&lt;/h3&gt;&lt;p&gt;在终端输入&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sysctl -p&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;重启-pptpd-服务&quot;&gt;&lt;a href=&quot;#重启-pptpd-服务&quot; class=&quot;headerlink&quot; title=&quot;重启 pptpd 服务&quot;&gt;&lt;/a&gt;重启 pptpd 服务&lt;/h3&gt;&lt;p&gt;在终端输入并回车&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo /etc/init.d/pptpd restart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;会出现 ok restarting pptpd：pptpd.servoce&lt;br&gt;在终端输入并回车&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo netstat -ntpl&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果出现&lt;br&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tcp &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;1723&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:*&lt;/span&gt; LISTEN &lt;span class=&quot;number&quot;&gt;11779&lt;/span&gt;/pptpd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;说明访问正常&lt;/p&gt;
+&lt;h2 id=&quot;连接-VPN&quot;&gt;&lt;a href=&quot;#连接-VPN&quot; class=&quot;headerlink&quot; title=&quot;连接 VPN&quot;&gt;&lt;/a&gt;连接 VPN&lt;/h2&gt;&lt;p&gt;在mac 和 iphone 上现在都已经取消了 pptpd 服务，但是可以通过第三方来连接，这里推荐一个软件&lt;br&gt;&lt;code&gt;shimo&lt;/code&gt;这个软件有破解版的,附赠下载地址：&lt;br&gt;&lt;a href=&quot;https://www.waitsun.com/shimo-4-1-5-1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;shimo 破解版下载地址&lt;/a&gt;&lt;br&gt;打开 shimo&lt;br&gt;选择 account 添加新账户，选中PPTP/L2TP 协议-&amp;gt; create&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-c317f0bb8de848d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_33.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;出现远程连接的弹框&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-b4074d2f593f5e37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_34.png&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中RemoteHost填写的是你之前创建的实例的共有 DNS，一定不能填错了&lt;/li&gt;
+&lt;li&gt;Username:填写你在步骤&lt;code&gt;###4.3&lt;/code&gt;配置的 vpnname&lt;/li&gt;
+&lt;li&gt;password:填写你在步骤&lt;code&gt;###4.3&lt;/code&gt;配置的 vpnpassword&lt;br&gt;然后 create&lt;br&gt;当你看到&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-df636a425260092f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_35.png&quot;&gt;&lt;br&gt;说明 VPN 连接成功了&lt;br&gt;下次只需要打开&lt;code&gt;shimo&lt;/code&gt;软件点击连接就 OK 了&lt;br&gt;到此就大功告成了!&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-08893b171ec379db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;Snip20171214_38.png&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-6a3ab3f1e25a78cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;https://www.pixiv.net&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1128807-66f6b85f99a1aa55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;youngjump.jp.com&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;br&gt;其实网上有不少的教程了，但是我觉得没几篇是真的自己一步一步来的，即使有可能自己摸索出来了，遇到的坑也没说出来，其实还是有很多坑，我是一个追求完美的人。因为最近在利用 AWS 的 EC2来部署自己的 node项目，所以顺手搭建了一个 vpn。&lt;br&gt;这里假定你已经拥有了 AWS 的账户，没有的先去申请一个，AWS 的服务首年免费，次年如果不想付费可以继续申请一个新的账号&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意在申请新的账号的时候不要勾选额外的服务，否则你会被无端扣费，我之前就被扣了几百美元，不过国外平台就是服务不错，如果你真没有使用过这些服务，可以申诉回来的，找亚马逊客服，我的五百大洋就找回来了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="chaserr.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="AWS EC2" scheme="chaserr.github.io/tags/AWS-EC2/"/>
+    
+      <category term="VPN" scheme="chaserr.github.io/tags/VPN/"/>
+    
+      <category term="服务器" scheme="chaserr.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基于Swift3的app启动插入广告页的实现</title>
     <link href="chaserr.github.io/2016/11/23/%E5%9F%BA%E4%BA%8ESwift3%E7%9A%84app%E5%90%AF%E5%8A%A8%E6%8F%92%E5%85%A5%E5%B9%BF%E5%91%8A%E9%A1%B5%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
     <id>chaserr.github.io/2016/11/23/基于Swift3的app启动插入广告页的实现/</id>
     <published>2016-11-23T01:35:20.000Z</published>
-    <updated>2016-11-23T02:40:21.000Z</updated>
+    <updated>2018-09-07T06:57:59.230Z</updated>
     
     <content type="html">&lt;h1 id=&quot;AppLaunchADExample&quot;&gt;&lt;a href=&quot;#AppLaunchADExample&quot; class=&quot;headerlink&quot; title=&quot;AppLaunchADExample&quot;&gt;&lt;/a&gt;AppLaunchADExample&lt;/h1&gt;&lt;h2 id=&quot;缓存逻辑&quot;&gt;&lt;a href=&quot;#缓存逻辑&quot; class=&quot;headerlink&quot; title=&quot;缓存逻辑&quot;&gt;&lt;/a&gt;缓存逻辑&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;为了防止网络延迟加载图片过慢，用户第一次启动app的时候不显示广告&lt;/li&gt;
@@ -76,7 +245,7 @@
     <link href="chaserr.github.io/2016/06/16/%E7%82%B9%E5%87%BBcell%E5%8A%A8%E6%80%81%E6%94%B9%E5%8F%98cell%E9%AB%98%E5%BA%A6/"/>
     <id>chaserr.github.io/2016/06/16/点击cell动态改变cell高度/</id>
     <published>2016-06-16T11:43:36.000Z</published>
-    <updated>2016-06-16T11:45:06.000Z</updated>
+    <updated>2018-09-07T06:57:59.231Z</updated>
     
     <content type="html">&lt;p&gt;应一个群朋友的要求，想实现如下图这种的效果：&lt;br&gt;&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/E552427019C66D11EA34D2FE5FCBA4E3.gif&quot; alt=&quot;效果图1&quot;&gt;&lt;/p&gt;
 &lt;p&gt;问题：点击cell，然后根据cell内部出来的view的高度来动态改变当前的点击的cell的高度。&lt;br&gt;解决思路：&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -122,7 +291,7 @@
     <link href="chaserr.github.io/2016/06/15/%E6%A0%87%E7%AD%BE%EF%BC%9AtextView%EF%BC%8C%E5%85%89%E6%A0%87%E5%81%8F%E7%A7%BB/"/>
     <id>chaserr.github.io/2016/06/15/标签：textView，光标偏移/</id>
     <published>2016-06-15T04:08:29.000Z</published>
-    <updated>2016-06-15T10:37:47.000Z</updated>
+    <updated>2018-09-07T06:57:59.231Z</updated>
     
     <content type="html">&lt;h1 id=&quot;textView使用小结：（仿QQ空间留言输入）&quot;&gt;&lt;a href=&quot;#textView使用小结：（仿QQ空间留言输入）&quot; class=&quot;headerlink&quot; title=&quot;textView使用小结：（仿QQ空间留言输入）&quot;&gt;&lt;/a&gt;textView使用小结：（仿QQ空间留言输入）&lt;/h1&gt;&lt;p&gt;效果图如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xuupy.com1.z0.glb.clouddn.com/textview.gif&quot; alt=&quot;textView从中间慢慢往上输出&quot;&gt;&lt;/p&gt;
@@ -157,7 +326,7 @@
     <link href="chaserr.github.io/2016/06/14/%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E8%AE%B0%E5%BD%95/"/>
     <id>chaserr.github.io/2016/06/14/使用插件记录/</id>
     <published>2016-06-14T04:08:29.000Z</published>
-    <updated>2016-06-14T09:17:29.000Z</updated>
+    <updated>2018-09-07T06:57:59.230Z</updated>
     
     <content type="html">&lt;p&gt;一款类似cocoapod管理第三方工具的管理工具，用来管理常用的插件:&lt;a href=&quot;https://github.com/wawsc5354524/Alcatraz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Alcatraz&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&quot;卸载Alcatraz&quot;&gt;&lt;a href=&quot;#卸载Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;卸载Alcatraz&quot;&gt;&lt;/a&gt;卸载Alcatraz&lt;/h2&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf ~&lt;span class=&quot;regexp&quot;&gt;/Library/&lt;/span&gt;Application\ Support/Alcatraz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -207,7 +376,7 @@
     <link href="chaserr.github.io/2016/06/01/%E6%9C%80%E7%AE%80%E4%BE%BF%E7%9A%84%E6%96%B9%E6%B3%95%E6%90%AD%E5%BB%BAHexo-Github%E5%8D%9A%E5%AE%A2-%E5%9F%BA%E4%BA%8ENext%E4%B8%BB%E9%A2%98/"/>
     <id>chaserr.github.io/2016/06/01/最简便的方法搭建Hexo-Github博客-基于Next主题/</id>
     <published>2016-06-01T04:08:29.000Z</published>
-    <updated>2016-06-14T09:11:17.000Z</updated>
+    <updated>2018-09-07T06:57:59.231Z</updated>
     
     <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Hexo，反正我第一眼看到就喜欢上了它的简约，&lt;a href=&quot;http://chaserr.github.io/&quot;&gt;感受一下吧&lt;/a&gt;。&lt;br&gt;如果你喜欢写作，我觉得你可以试试gitbook或者跟着本文搭建一个属于自己的博客空间（即使你不是IT行业的一员），不再受限于第三方博客地址，当然Hexo搭建的博客也是基于github托管的，但是并不需要你购买域名。&lt;br&gt;经过两天的探索加爬坑，终于把博客在git上安家了，感谢开源的大哥大姐们，由于并非js开发，所以遇到了很多坑，于是也想整理一篇比较完整的博客。这篇博客分为三部分：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1.搭建you_site服务器环境&lt;/strong&gt;&lt;/p&gt;
@@ -483,39 +652,11 @@ Server running at http://127.0.0.1:8124/
     <link href="chaserr.github.io/2016/05/31/Hello-Hexo/"/>
     <id>chaserr.github.io/2016/05/31/Hello-Hexo/</id>
     <published>2016-05-31T09:49:22.000Z</published>
-    <updated>2016-05-31T09:49:22.000Z</updated>
+    <updated>2018-09-07T06:57:59.230Z</updated>
     
     <content type="html"></content>
     
     <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="chaserr.github.io/2016/05/31/hello-world/"/>
-    <id>chaserr.github.io/2016/05/31/hello-world/</id>
-    <published>2016-05-31T09:23:33.000Z</published>
-    <updated>2016-06-02T16:55:28.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h2 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
